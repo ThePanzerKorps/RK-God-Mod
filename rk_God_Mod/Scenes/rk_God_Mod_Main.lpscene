@@ -1,0 +1,263 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+
+SceneStart()
+
+    GetMoreMoney = 100000
+    GetMoreMoneyLoc = GetMoreMoney.convertToLocalCurrency()
+    
+    StayinMenu = true
+    While StayinMenu
+    
+        "Where do you want to cheat?"
+        0::"Get more money (<GetMoreMoneyLoc>)"
+        1::"Improve Skills stats"
+        2::"Improve Body/Health stats"
+        3::"Improve Sexual stats"
+        30:: isModEnabled(nn_GangsOfLifePlay) ::"Gang Of LifePlay Cheats"
+        31:: isModEnabled(nn_PornEmpire) ::"PornEmpire Cheats"
+        99::"Back to the game!"
+
+        If 0
+        
+            "<GetMoreMoneyLoc> have been added to your money!"
+            money += GetMoreMoney
+            
+        ElseIf 1
+            
+            Add50Points = 50
+            "Which skill you want to improve?"
+            0::"Cooking (+<Add50Points>)"
+            1::"Dance (+<Add50Points>)"
+            2::"Fitness (+<Add50Points>)"
+            3::"Interpersonal (+<Add50Points>)"
+            4::"Job experience (+<Add50Points>)"
+            5::"Job performance (+<Add50Points>)"
+            6::"Martial (+<Add50Points>)"
+            7::"Music (+<Add50Points>)"
+            8::"Pornfame (+<Add50Points>)"
+            9::"Sneaking (+<Add50Points>)"
+            99::"Back!"
+            
+            If 0
+            
+                "<Add50Points> points have been added to your cooking skills!"
+                cooking += 50
+                karma -= 2
+            
+            ElseIf 1
+            
+                "<Add50Points> points have been added to your dancing skills!"
+                dance += 50
+                karma -= 2
+            
+            ElseIf 2
+            
+                "<Add50Points> points have been added to your fitness skills!"
+                fitness += 50
+                karma -= 2
+                 
+            ElseIf 3
+            
+                "<Add50Points> points have been added to your interpersonal skills!"
+                interpersonal += 50
+                karma -= 2
+                
+            ElseIf 4
+            
+                "<Add50Points> points have been added to your job experience skills!"
+                jobexperience += 50
+                karma -= 2
+                
+            ElseIf 5
+            
+                "<Add50Points> points have been added to your job performance skills!"
+                jobperformance += 50
+                karma -= 2
+                 
+            ElseIf 6
+            
+                "<Add50Points> points have been added to your job performance skills!"
+                martial += 50
+                karma -= 2
+            
+            ElseIf 7
+            
+                "<Add50Points> points have been added to your music skills!"
+                music += 50
+                karma -= 2
+                 
+            ElseIf 8
+            
+                "<Add50Points> points have been added to your Pornfame skills!"
+                pornfame += 50
+                karma -= 2
+                 
+            ElseIf 9
+            
+                "<Add50Points> points have been added to your sneaking skills!"
+                sneak += 50
+                karma -= 2
+            
+            EndIf
+            
+        ElseIf 2
+            
+            Add50Points = 50
+            "What I want to improve?"
+            0::"Attractiveness (+<Add50Points>)"
+            1::"Energy (+<Add50Points>)"
+            2::"Intelligence (+<Add50Points>)"
+            3::"Muscle (+<Add50Points>)"
+            99::"Back!"
+            
+            If 0
+            
+                "<Add50Points> points have been added to your attractiveness level!"
+                attractiveness += 50
+                karma -= 2
+            
+            ElseIf 1
+            
+                "<Add50Points> points have been added to your energy level!"
+                energy += 50
+                karma -= 2
+                
+            ElseIf 2
+            
+                "<Add50Points> points have been added to your intelligence level!"
+                intelligence += 50
+                karma -= 2
+                
+            ElseIf 3
+            
+                "<Add50Points> points have been added to your muscle level!"
+                muscle += 50
+                karma -= 2
+            
+            EndIf
+        
+        ElseIf 3
+            
+            Add50Points = 50
+            "What I want to improve?"
+            0::"Arousal (+<Add50Points>)"
+            1::"Incest (+<Add50Points>)"
+            2::"Intoxication (+<Add50Points>)"
+            3::"Masochist (+<Add50Points>)"
+            4::"Perversion (+<Add50Points>)"
+            5::"Fertility (+<Add50Points>)"
+            99::"Back!"
+            
+            If 0
+            
+                "<Add50Points> points have been added to your arousal level!"
+                arousal += 50
+                karma -= 2
+                
+            ElseIf 1
+            
+                "<Add50Points> points have been added to your incest level!"
+                incest += 50
+                karma -= 2
+                
+            ElseIf 2
+            
+                "<Add50Points> points have been added to your intoxication level!"
+                intoxication += 50
+                karma -= 2
+                
+            ElseIf 3
+            
+                "<Add50Points> points have been added to your masochist level!"
+                masochist += 50
+                karma -= 2
+            
+            ElseIf 4
+            
+                "<Add50Points> points have been added to your perversion level!"
+                perversion += 50
+                karma -= 2
+                
+            ElseIf 5
+            
+                "<Add50Points> points have been added to your perversion level!"
+                fertility += 50
+                karma -= 2
+            
+            EndIf
+        
+        ElseIf 30
+            
+            nItems = Player.getActorVar(GL_ValueItems)
+            nDrugs = Player.getActorVar(GL_Drugs)
+            bmState = Player.getActorVar(GL_BM_state)
+            Add50Points = 50
+            
+            "What I want to improve?"
+            0::"Drugs (+<Add50Points>)"
+            1::"Number of Valuable items (+<Add50Points>)"
+            2::"9mm ammo (+<Add50Points>)"
+            3:: bmState < 4::"Register Black Market"
+            4::"Lock Picking Skills"
+            99::"Back!"
+        
+            If 0
+
+                Player.modifyActorVar(GL_Drugs, 50)
+                "You added 50 drugs to your inventory."
+                karma -= 2
+            
+            ElseIf 1
+
+                Player.modifyActorVar(GL_ValueItems, 50)
+                "You added 50 valuable items to your inventory."
+                karma -= 2
+            
+            ElseIf 2
+
+                Player:glGunAmmo += 50
+                "You added 50 ammos to your inventory"
+                karma -= 2
+            
+            ElseIf 3
+            
+                If bmState == 4
+                
+                    "You already have all you need!"
+                
+                Else
+
+                    Player.setActorVar(GL_BM_state, 4)
+                    "You register your account 'KingOfCrimeXXX' and browse the awesome stuff that is for sale."
+                    bmOpen = true
+                    karma -= 2
+                
+                EndIf
+                
+            ElseIf 4
+
+                Player:glLockPickingSkill += 50
+                "You added 50 points to your lock picking skills"
+                karma -= 2
+
+            EndIf
+            
+        ElseIf 31
+        
+            followUp(nn_pe_scene_settings)
+            StayinMenu = false
+            
+        Else
+    
+            StayinMenu = false
+    
+        EndIf
+
+    EndWhile
+
+SceneEnd()
