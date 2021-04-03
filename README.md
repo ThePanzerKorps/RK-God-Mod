@@ -8,6 +8,7 @@
 <br>
 <p>The mod for cheating in LifePlay!</p>
 <p>You need money faster, more skills, more items,....</p>
+<p>Some options cannot be changed as this may create bugs or messed up your saves...</p>
 <br>
 <p><strong>The mod give ability to:</strong></p>
 <p>1- Get more money ($100 000 US)</p>
@@ -25,6 +26,8 @@
 <br>
 <h3>Module requirements</h3>
 <p>At least LifePlay 3.21</p>
+<br>
+<hr>
 <br>
 <h3>Module conflict</h3>
 <p>None</p>
