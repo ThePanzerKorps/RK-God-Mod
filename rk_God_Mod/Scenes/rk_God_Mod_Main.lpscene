@@ -20,6 +20,7 @@ SceneStart()
         3::"Improve Sexual stats"
         30:: isModEnabled(nn_GangsOfLifePlay) ::"Gang Of LifePlay Cheats"
         31:: isModEnabled(nn_PornEmpire) ::"PornEmpire Cheats"
+        50:: isModEnabled(rk_MoneyMaker) ::"Money Maker Cheats"
         99::"Back to the game!"
 
         If 0
@@ -251,6 +252,146 @@ SceneStart()
         
             followUp(nn_pe_scene_settings)
             StayinMenu = false
+        
+        ElseIf 50
+        
+            Add50Points = 50
+            "What do you want to do?"
+            0::"Get more art items"
+            1::"Get more jewelry"
+            99::"Back!"
+            
+            If 0
+            
+                cheapAType = Player.getActorVar(cheapAType)
+                AffordableAType = Player.getActorVar(AffordableAType)
+                ClassyAType = Player.getActorVar(ClassyAType)
+                NiceAType = Player.getActorVar(NiceAType)
+                FashionAType = Player.getActorVar(FashionAType)
+                HandcraftedAType = Player.getActorVar(HandcraftedAType)
+                FinestAType = Player.getActorVar(FinestAType)
+                FirstQualityAType = Player.getActorVar(FirstQualityAType)
+                value_artproducts = Player.getActorVar(value_artproducts)
+                
+                "Which one you want?"
+                0:: "<Add50Points> cheap art items"
+                1:: "<Add50Points> affordable art items"
+                2:: "<Add50Points> classy art items"
+                3:: "<Add50Points> nice art items"
+                4:: "<Add50Points> fashion art items"
+                5:: "<Add50Points> handcrafted art items"
+                6:: "<Add50Points> finest art items"
+                7:: "<Add50Points> first quality art items"
+                99:: "Go back !"
+                
+                If 0
+            
+                    Player.modifyActorVar(cheapAType, 50)
+                    Player::"Maybe cheap, but they always useful inside some rooms or to give at a gifts exchange."
+                
+                Elseif 1
+            
+                    Player.modifyActorVar(AffordableAType, 50)
+                    Player::"50 more affordable art items added to my collection."
+                
+                Elseif 2
+            
+                    Player.modifyActorVar(ClassyAType, 50)
+                    Player::"50 more classy art items added to my collection."
+                
+                Elseif 3
+            
+                    Player.modifyActorVar(NiceAType, 50)
+                    Player::"Sure, with they I will look pretty cool inside my house!"
+                
+                Elseif 4
+            
+                    Player.modifyActorVar(FashionAType, 50)
+                    Player::"50 more fashion art items added to my collection."
+                
+                Elseif 5
+            
+                    Player.modifyActorVar(HandcraftedAType, 50)
+                    Player::"50 more handcrafted art items added to my collection."
+                
+                Elseif 6
+            
+                    Player.modifyActorVar(FinestAType, 50)
+                    Player::"When you want to look rich, these are the art items you get!"
+                
+                Elseif 7
+            
+                    Player.modifyActorVar(FirstQualityAType, 50)
+                    Player::"When you want to look very rich, these are the art items you get!"
+                
+                Endif
+            
+            Else 1
+            
+                stock_cheapJType = Player.getActorVar(stock_cheapJType)
+                stock_AffordableJType = Player.getActorVar(stock_AffordableJType)
+                stock_ClassyJType = Player.getActorVar(stock_ClassyJType)
+                stock_NiceJType = Player.getActorVar(stock_NiceJType)
+                stock_FashionJType = Player.getActorVar(stock_FashionJType)
+                stock_HandcraftedJType = Player.getActorVar(stock_HandcraftedJType)
+                stock_FinestJType = Player.getActorVar(stock_FinestJType)
+                stock_FirstQualityJType = Player.getActorVar(stock_FirstQualityJType)
+                jewel_value = Player.getActorVar(jewel_value)
+        
+                "Which one you want?"
+                0::"50 cheap jewelry"
+                1::"50 affordable jewelry"
+                2::"50 classy jewelry"
+                3::"50 nice jewelry"
+                4::"50 fashion jewelry"
+                5::"50 handcrafted jewelry"
+                6::"50 finest jewelry"
+                7::"50 first quality jewelry"
+                99:: "Go back !"
+                
+                If 0
+            
+                    Player.modifyActorVar(stock_cheapJType, 50)
+                    Player::"Maybe cheap, but the best gifts for my children, strangers or my prostitutes..."
+                                
+                Elseif 1
+            
+                    Player.modifyActorVar(stock_AffordableJType, 50)
+                    Player::"I'm pretty sure, I will look nice with them!"
+
+                Elseif 2
+            
+                    Player.modifyActorVar(stock_ClassyJType, 50)
+                    Player::"50 more classy Jewelry in my jewel box."
+
+                Elseif 3
+            
+                    Player.modifyActorVar(stock_NiceJType, 50)
+                    Player::"Sure, with these I will look pretty cool !"
+
+                Elseif 4
+            
+                    Player.modifyActorVar(stock_FashionJType, 50)
+                    Player::"50 more fashion jewel in my jewel box."
+
+                Elseif 5
+            
+                    Player.modifyActorVar(stock_HandcraftedJType, 50)
+                    Player::"50 more handcrafted Jewelry for my collection."
+
+                Elseif 6
+            
+                    Player.modifyActorVar(stock_FinestJType, 50)
+                    Player::"When you want to look rich, that's the Jewelry you get !"
+
+                Elseif 7
+            
+                    Player.modifyActorVar(stock_FirstQualityJType, 50)
+                    Player::"When you want to look very rich, that's the Jewelry you get !"
+
+                Endif
+
+            EndIf
             
         Else
     
