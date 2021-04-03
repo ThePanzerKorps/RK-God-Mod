@@ -9,6 +9,7 @@
 <p>The mod for cheating in LifePlay!</p>
 <p>You need money faster, more skills, more items,....</p>
 <p>Some options cannot be changed as this may create bugs or messed up your saves...</p>
+<p>Some mods already have a cheating section, this mod just add a link to them...</p>
 <br>
 <p><strong>The mod give ability to:</strong></p>
 <p>1- Get more money ($100 000 US)</p>
@@ -21,6 +22,8 @@
 <p>- Gang Of LifePlay</p>
 <p>- PornEmpire</p>
 <p>- Money Maker</p>
+<p>- Sex Guru</p>
+<p>- Weed Biz/p>
 <br>
 <hr>
 <br>

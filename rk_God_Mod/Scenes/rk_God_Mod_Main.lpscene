@@ -22,6 +22,8 @@ SceneStart()
         30:: isModEnabled(nn_GangsOfLifePlay) ::"Gang Of LifePlay Cheats"
         31:: isModEnabled(nn_PornEmpire) ::"PornEmpire Cheats"
         50:: isModEnabled(rk_MoneyMaker) ::"Money Maker Cheats"
+        55:: isModEnabled(rk_Sex_Guru) ::"Sex Guru Cheats"
+        59:: isModEnabled(rk_Weed_biz) ::"Weed Biz Cheats"
         99::"Back to the game!"
 
         If 0
@@ -157,15 +159,45 @@ SceneStart()
             
             If 0
             
-                "<Add50Points> points have been added to your arousal level!"
-                arousal += 50
-                karma -= 2
+                "What do want to do?"
+                0::"Increase arousal by 50"
+                1::"Reduce arousal by 50"
+                99::"Back!"
+                
+                If 0
+                
+                    "<Add50Points> points have been added to your arousal level!"
+                    arousal += 50
+                    karma -= 2
+                
+                ElseIf 1
+                
+                    "<Add50Points> points have been added to your arousal level!"
+                    arousal -= 50
+                    karma -= 2
+                    
+                EndIf
                 
             ElseIf 1
             
-                "<Add50Points> points have been added to your incest level!"
-                incest += 50
-                karma -= 2
+                "What do want to do?"
+                0::"Increase incest by 50"
+                1::"Reduce incest by 50"
+                99::"Back!"
+            
+                If 0
+                
+                    "<Add50Points> points have been added to your incest level!"
+                    incest += 50
+                    karma -= 2
+                
+                ElseIf 1
+                
+                    "<Add50Points> points have been added to your incest level!"
+                    incest -= 50
+                    karma -= 2
+                    
+                EndIf
                 
             ElseIf 2
             
@@ -175,15 +207,45 @@ SceneStart()
                 
             ElseIf 3
             
-                "<Add50Points> points have been added to your masochist level!"
-                masochist += 50
-                karma -= 2
+                "What do want to do?"
+                0::"Increase masochist by 50"
+                1::"Reduce masochist by 50"
+                99::"Back!"
+            
+                If 0
+                
+                    "<Add50Points> points have been added to your masochist level!"
+                    masochist += 50
+                    karma -= 2
+                
+                ElseIf 1
+                
+                    "<Add50Points> points have been added to your masochist level!"
+                    masochist -= 50
+                    karma -= 2
+                    
+                EndIf
             
             ElseIf 4
             
-                "<Add50Points> points have been added to your perversion level!"
-                perversion += 50
-                karma -= 2
+                "What do want to do?"
+                0::"Increase perversion by 50"
+                1::"Reduce perversion by 50"
+                99::"Back!"
+            
+                If 0
+                
+                    "<Add50Points> points have been added to your perversion level!"
+                    perversion += 50
+                    karma -= 2
+                
+                ElseIf 1
+                
+                    "<Add50Points> points have been added to your perversion level!"
+                    perversion -= 50
+                    karma -= 2
+                    
+                EndIf
                 
             ElseIf 5
             
@@ -596,6 +658,16 @@ SceneStart()
                 Endif
 
             EndIf
+            
+        ElseIf 55
+        
+            followUp(rk_Cheat_religion)
+            StayinMenu = false
+            
+        ElseIf 59
+        
+            followUp(rk_wd_CheatList)
+            StayinMenu = false
             
         Else
     
