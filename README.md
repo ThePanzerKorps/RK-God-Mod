@@ -4,9 +4,22 @@
 <br>
 <h3>rk_God_Mod :</h3>
 <p>Version: 0.0.1 (WIP)</p>
+<p>Version fully working but not finished, will be added to LP-ModManager when finished!</p>
 <br>
 <p>The mod for cheating in LifePlay!</p>
 <p>You need money faster, more skills, more items,....</p>
+<br>
+<p><strong>The mod give ability to:</strong></p>
+<p>1- Get more money ($100 000 US)</p>
+<p>2- Improve Skills stats</p>
+<p>3- Improve Body/Health stats</p>
+<p>4- Improve Sexual stats</p>
+<p>5- Improve inventory</p>
+<br>
+<p><strong>Improve stats of these mods:</strong></p>
+<p>- Gang Of LifePlay</p>
+<p>- PornEmpire</p>
+<p>- Money Maker</p>
 <br>
 <hr>
 <br>
