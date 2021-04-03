@@ -18,6 +18,7 @@ SceneStart()
         1::"Improve Skills stats"
         2::"Improve Body/Health stats"
         3::"Improve Sexual stats"
+		10::"Improve inventory"
         30:: isModEnabled(nn_GangsOfLifePlay) ::"Gang Of LifePlay Cheats"
         31:: isModEnabled(nn_PornEmpire) ::"PornEmpire Cheats"
         50:: isModEnabled(rk_MoneyMaker) ::"Money Maker Cheats"
@@ -31,7 +32,7 @@ SceneStart()
         ElseIf 1
             
             Add50Points = 50
-            "Which skill you want to improve?"
+            "Which skill do you want to improve?"
             0::"Cooking (+<Add50Points>)"
             1::"Dance (+<Add50Points>)"
             2::"Fitness (+<Add50Points>)"
@@ -109,7 +110,7 @@ SceneStart()
         ElseIf 2
             
             Add50Points = 50
-            "What I want to improve?"
+            "What do you want to improve?"
             0::"Attractiveness (+<Add50Points>)"
             1::"Energy (+<Add50Points>)"
             2::"Intelligence (+<Add50Points>)"
@@ -145,7 +146,7 @@ SceneStart()
         ElseIf 3
             
             Add50Points = 50
-            "What I want to improve?"
+            "What do you want to improve?"
             0::"Arousal (+<Add50Points>)"
             1::"Incest (+<Add50Points>)"
             2::"Intoxication (+<Add50Points>)"
@@ -192,6 +193,193 @@ SceneStart()
             
             EndIf
         
+		ElseIf 10
+		
+		    Add50Points = 50
+            "What do you want to improve?"
+			0::"Foods level"
+			1::"Items level"
+			99::"Go back!"
+			
+			If 0
+			    
+				"Which foods do you want to higher the level?"
+				0::"Stock alcohols (+<Add50Points>)"
+				1::"Stock coffees (+<Add50Points>)"
+				2::"Stock ingredients (+<Add50Points>)"
+				3::"Stock juices (+<Add50Points>)"
+				4::"Stock meals (+<Add50Points>)"
+				5::"Stock petfoods (+<Add50Points>)"
+				6::"Stock snacks (+<Add50Points>)"
+				7::"Stock sodas (+<Add50Points>)"
+				8::"Stock supplements (+<Add50Points>)"
+				9::"Stock teas (+<Add50Points>)"
+				99::"Back!"
+				
+				If 0
+            
+                    "<Add50Points> alcohols have been added to your inventory!"
+                    stock_alcohol += 50
+                    karma -= 2
+				
+				ElseIf 1
+            
+                    "<Add50Points> coffees have been added to your inventory!"
+                    stock_coffee += 50
+                    karma -= 2
+					
+				ElseIf 2
+            
+                    "<Add50Points> ingredients have been added to your inventory!"
+                    stock_ingredient += 50
+                    karma -= 2
+					
+				ElseIf 3
+            
+                    "<Add50Points> juices have been added to your inventory!"
+                    stock_juice += 50
+                    karma -= 2
+					
+				ElseIf 4
+            
+                    "<Add50Points> meals have been added to your inventory!"
+                    stock_meal += 50
+                    karma -= 2
+					
+				ElseIf 5
+            
+                    "<Add50Points> petfoods have been added to your inventory!"
+                    stock_petfood += 50
+                    karma -= 2
+					
+				ElseIf 6
+            
+                    "<Add50Points> snacks have been added to your inventory!"
+                    stock_snack += 50
+                    karma -= 2
+					
+				ElseIf 7
+            
+                    "<Add50Points> sodas have been added to your inventory!"
+                    stock_soda += 50
+                    karma -= 2
+					
+				ElseIf 8
+            
+                    "<Add50Points> supplements have been added to your inventory!"
+                    stock_supplement += 50
+                    karma -= 2
+					
+				ElseIf 9
+            
+                    "<Add50Points> teas have been added to your inventory!"
+                    stock_tea += 50
+                    karma -= 2
+				
+				EndIf
+			
+			
+			ElseIf 1
+
+				"Which items do you want to higher the level?"
+				0::"Stock books (+<Add50Points>)"
+				1::"Stock condoms (+<Add50Points>)"
+				2::"Stock flowers (+<Add50Points>)"
+				3::"Stock gifts (+<Add50Points>)"
+				4::"Stock haircares (+<Add50Points>)"
+				5::"Stock makeups (+<Add50Points>)"
+				6::"Stock movies (+<Add50Points>)"
+				7::"Stock musical instruments (+<Add50Points>)"
+				8::"Stock photos (+<Add50Points>)"
+				9::"Stock pills (+<Add50Points>)"
+				10::"Stock skincares (+<Add50Points>)"
+				11::"Stock tobaccos (+<Add50Points>)"
+				12::"Stock videos (+<Add50Points>)"
+				99::"Back!"
+				
+				If 0
+            
+                    "<Add50Points> books have been added to your inventory!"
+                    stock_book += 50
+                    karma -= 2
+				
+				ElseIf 1
+            
+                    "<Add50Points> condoms have been added to your inventory!"
+                    stock_condom += 50
+                    karma -= 2
+					
+				ElseIf 2
+            
+                    "<Add50Points> flowers have been added to your inventory!"
+                    stock_flower += 50
+                    karma -= 2
+					
+				ElseIf 3
+            
+                    "<Add50Points> gifts have been added to your inventory!"
+                    stock_gift += 50
+                    karma -= 2
+					
+				ElseIf 4
+            
+                    "<Add50Points> haircares have been added to your inventory!"
+                    stock_haircare += 50
+                    karma -= 2
+					
+				ElseIf 5
+            
+                    "<Add50Points> makeups have been added to your inventory!"
+                    stock_makeup += 50
+                    karma -= 2
+					
+				ElseIf 6
+            
+                    "<Add50Points> movies have been added to your inventory!"
+                    stock_movie += 50
+                    karma -= 2
+					
+				ElseIf 7
+            
+                    "<Add50Points> musical instruments have been added to your inventory!"
+                    stock_musicalinstrument += 50
+                    karma -= 2
+					
+				ElseIf 8
+            
+                    "<Add50Points> photos have been added to your inventory!"
+                    stock_photo += 50
+                    karma -= 2
+					
+				ElseIf 9
+            
+                    "<Add50Points> pills have been added to your inventory!"
+                    stock_pill += 50
+                    karma -= 2
+					
+				ElseIf 10
+            
+                    "<Add50Points> skincares have been added to your inventory!"
+                    stock_skincare += 50
+                    karma -= 2
+					
+				ElseIf 11
+            
+                    "<Add50Points> tobaccos have been added to your inventory!"
+                    stock_tobacco += 50
+                    karma -= 2
+					
+				ElseIf 12
+            
+                    "<Add50Points> videos have been added to your inventory!"
+                    stock_video += 50
+                    karma -= 2
+				
+				EndIf
+			
+			EndIf
+            
+			
         ElseIf 30
             
             nItems = Player.getActorVar(GL_ValueItems)
@@ -288,41 +476,49 @@ SceneStart()
             
                     Player.modifyActorVar(cheapAType, 50)
                     Player::"Maybe cheap, but they always useful inside some rooms or to give at a gifts exchange."
+                    karma -= 2
                 
                 Elseif 1
             
                     Player.modifyActorVar(AffordableAType, 50)
                     Player::"50 more affordable art items added to my collection."
+                    karma -= 2
                 
                 Elseif 2
             
                     Player.modifyActorVar(ClassyAType, 50)
                     Player::"50 more classy art items added to my collection."
+                    karma -= 2
                 
                 Elseif 3
             
                     Player.modifyActorVar(NiceAType, 50)
                     Player::"Sure, with they I will look pretty cool inside my house!"
+                    karma -= 2
                 
                 Elseif 4
             
                     Player.modifyActorVar(FashionAType, 50)
                     Player::"50 more fashion art items added to my collection."
+                    karma -= 2
                 
                 Elseif 5
             
                     Player.modifyActorVar(HandcraftedAType, 50)
                     Player::"50 more handcrafted art items added to my collection."
+                    karma -= 2
                 
                 Elseif 6
             
                     Player.modifyActorVar(FinestAType, 50)
                     Player::"When you want to look rich, these are the art items you get!"
+                    karma -= 2
                 
                 Elseif 7
             
                     Player.modifyActorVar(FirstQualityAType, 50)
                     Player::"When you want to look very rich, these are the art items you get!"
+                    karma -= 2
                 
                 Endif
             
@@ -353,41 +549,49 @@ SceneStart()
             
                     Player.modifyActorVar(stock_cheapJType, 50)
                     Player::"Maybe cheap, but the best gifts for my children, strangers or my prostitutes..."
+                    karma -= 2
                                 
                 Elseif 1
             
                     Player.modifyActorVar(stock_AffordableJType, 50)
                     Player::"I'm pretty sure, I will look nice with them!"
+                    karma -= 2
 
                 Elseif 2
             
                     Player.modifyActorVar(stock_ClassyJType, 50)
                     Player::"50 more classy Jewelry in my jewel box."
+                    karma -= 2
 
                 Elseif 3
             
                     Player.modifyActorVar(stock_NiceJType, 50)
                     Player::"Sure, with these I will look pretty cool !"
+                    karma -= 2
 
                 Elseif 4
             
                     Player.modifyActorVar(stock_FashionJType, 50)
                     Player::"50 more fashion jewel in my jewel box."
+                    karma -= 2
 
                 Elseif 5
             
                     Player.modifyActorVar(stock_HandcraftedJType, 50)
                     Player::"50 more handcrafted Jewelry for my collection."
+                    karma -= 2
 
                 Elseif 6
             
                     Player.modifyActorVar(stock_FinestJType, 50)
                     Player::"When you want to look rich, that's the Jewelry you get !"
+                    karma -= 2
 
                 Elseif 7
             
                     Player.modifyActorVar(stock_FirstQualityJType, 50)
                     Player::"When you want to look very rich, that's the Jewelry you get !"
+                    karma -= 2
 
                 Endif
 
