@@ -1,0 +1,872 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+
+SceneStart()
+    
+    CasandraSmith = generatePersonTemporary(rk_ModelF_Casandra_Smith)
+    CasandraSmith.dress()
+    CasandraSmith.show()
+    CasandraSmith.animate(socialize)
+    
+    If [Player:perversion > 50 && Player:arousal > 15] && [CasandraSmith:perversion > 50 && CasandraSmith:arousal > 15]
+        CasandraSmith(Flirty)::"Humm, sexy <Player.boy_or_girl>!"
+        CasandraSmith(Happy)::"So you need foods! Do you want to taste my body instead or before cheating?"
+        "Do I taste her body?"
+        0::"I accept"
+        1::"I refuse"
+        
+        If 0
+        
+            CasandraSmith.show(4)
+            CasandraSmith.strip()
+            Player.strip()
+
+            Sex(CasandraSmith, Player)
+            perversion += 0.35
+            CasandraSmith:attractiontoplayer += Random(0, 3)
+
+            passTime(0.15, 0.25)
+
+            CasandraSmith(Serene):: "That was good!"
+            CasandraSmith.dress()
+        
+        EndIf
+        
+        
+    EndIf
+
+    StayinMenu = true
+    While StayinMenu
+
+        "Which type of items/products do you want to improve?"
+        0::"Bakery items/products"
+        1::"Frozen items/products"
+        2::"Meal items/products"
+        3::"Sextoys"
+        4::"Smoking items/products"
+        5::"Snack items/products"
+        99::"Back to the game!"
+    
+        If 0
+        
+            Player(Curious)::"Which type of breads or pastry?"
+            0:: "Add 50 pitas"
+            1:: "Add 50 Nutricious breads"
+            2:: "Add 50 Whole grain bagels"
+            3:: "Add 50 Baltik breads"
+            4:: "Add 50 Protein cookies"
+            5:: "Add 50 Vdolky donuts"
+            6:: "Add 50 slices apple pie"
+            7:: "Add 50 pieces of Royal cake"
+            99:: "Go back!"
+               
+            If 0
+            
+                Player.modifyActorVar(stock_Pita, 50)
+                Player(Excited)::"50 more pitas added to my pantry!"
+                karma -= 2
+                    
+            ElseIf 1
+            
+                Player.modifyActorVar(stock_Bread, 50)
+                Player(Excited)::"50 more breads added to my pantry!"
+                karma -= 2
+                    
+            ElseIf 2
+            
+                Player.modifyActorVar(stock_Bagel, 50)
+                Player(Excited)::"50 more bagels added to my pantry!"
+                karma -= 2
+                    
+            ElseIf 3
+            
+                Player.modifyActorVar(stock_BaltikBread, 50)
+                Player(Excited)::"50 more Baltik breads added to my pantry!"
+                karma -= 2
+        
+            ElseIf 4
+            
+                Player.modifyActorVar(stock_ProteinCookie, 50)
+                Player(Excited)::"50 more protein cookies added to my pantry!"
+                karma -= 2
+            
+            ElseIf 5
+            
+                Player.modifyActorVar(stock_VdolkyDonut, 50)
+                Player(Excited)::"50 more Vdolky donuts added to my pantry!"
+                karma -= 2
+
+            ElseIf 6
+            
+                Player.modifyActorVar(stock_ApplePie, 50)
+                Player(Excited)::"50 slices of apple pie added to my pantry!"
+                karma -= 2
+
+            ElseIf 7
+            
+                Player.modifyActorVar(stock_RoyalCake, 50)
+                Player(Excited)::"50 pieces of Royal cake added to my pantry!"
+                karma -= 2
+   
+            EndIf
+    
+        ElseIf 1
+        
+            Player(Curious)::"Which type of frozen meals?"
+            0:: "Ice creams desserts"
+            1:: "Seafoods"
+            99:: "Go back!"
+            
+            If 0
+            
+                Player(Curious)::"Which type of ice cream desserts?"
+                0:: "Add 50 Popcycles"
+                1:: "Add 50 Ice cream cups"
+                2:: "Add 50 Milk Shakes"
+                3:: "Add 50 Frozen Margarita pies"
+                4:: "Add 50 Ice cream cakes"
+                99:: "Go back!"
+               
+                If 0
+                
+                    Player.modifyActorVar(stock_Popcycle, 50)
+                    Player(Excited)::"50 popcycles added to my freezer!" 
+                    karma -= 2
+                    
+                ElseIf 1
+                
+                    Player.modifyActorVar(stock_IcecreamCup, 50)
+                    Player(Excited)::"50 ice cream cups added to my freezer!"
+                    karma -= 2
+                    
+                ElseIf 2
+                
+                    Player.modifyActorVar(stock_MilkShake, 50)
+                    Player(Excited)::"50 milk shakes added to my freezer!"
+                    karma -= 2
+                    
+                ElseIf 3
+                
+                    Player.modifyActorVar(stock_FrozenPie, 50)
+                    Player(Excited)::"50 frozen Margarita pies added to my freezer!"
+                    karma -= 2
+                    
+                ElseIf 4
+                
+                    Player.modifyActorVar(stock_IceCreamCake, 50)
+                    Player(Excited)::"50 ice cream cakes added to my freezer!"
+                    karma -= 2
+                    
+                EndIf
+            
+            ElseIf 1
+            
+                Player(Curious)::"Which type of seafoods?"
+                0:: "Add 50 Oysters dishes"
+                1:: "Add 50 Shrimps dishes"
+                2:: "Add 50 Sushi dishes"
+                3:: "Add 50 Lobster dishes"
+                4:: "Add 50 Caviar dishes"
+                99:: "Go back!"
+               
+                If 0
+        
+                    Player.modifyActorVar(stock_Oysters, 50)
+                    Player(Excited)::"50 oysters dishes added to my freezer!"
+                    karma -= 2
+                    
+                ElseIf 1
+        
+                    Player.modifyActorVar(stock_Shrimps, 50)
+                    Player(Excited)::"50 shrimps dishes added to my freezer!"
+                    karma -= 2
+                    
+                ElseIf 2
+        
+                    Player.modifyActorVar(stock_Sushi, 50)
+                    Player(Excited)::"50 sushi dishes added to my freezer!"
+                    karma -= 2
+                    
+                ElseIf 3
+        
+                    Player.modifyActorVar(stock_Lobster, 50)
+                    Player(Excited)::"50 lobster dishes added to my freezer!"
+                    karma -= 2
+        
+                ElseIf 4
+        
+                    Player.modifyActorVar(stock_Caviar, 50)
+                    Player(Excited)::"50 caviar dishes added to my freezer!"
+                    karma -= 2
+            
+                EndIf
+            
+            EndIf
+        
+        ElseIf 2
+        
+            Player(Curious)::"Which type of meals?"
+            0:: "Meaty meals"
+            1:: "Vegan meals"
+            99:: "Go back!"
+            
+            If 0
+            
+                Player(Curious)::"Which type of meals?"
+                0::"Add 50 Beef Jerkey bags"
+                1::"Add 50 Philly Cheesesteaks"
+                2::"Add 50 Chicken schnitzels"
+                3::"Add 50 Salt-and-Pepper Steaks"
+                4::"Add 50 Bacon-Wrapped Porks"
+                5::"Add 50 Chicken Kebabs with rice"
+                6::"Add 50 Chinese Beef & Broccoli"
+                7::"Add 50 Surf 'n Turfs"
+                99:: "Go back!"
+               
+                If 0
+                
+                    Player.modifyActorVar(stock_Jerkey, 50)
+                    Player(Excited)::"50 Beef Jerkey bags added to my refrigerator!"
+                    karma -= 2
+                    
+                ElseIf 1
+                
+                    Player.modifyActorVar(stock_Cheesesteak, 50)
+                    Player(Excited)::"50 Philly Cheesesteaks added to my refrigerator!"
+                    karma -= 2
+                    
+                ElseIf 2
+                
+                    Player.modifyActorVar(stock_Chicken, 50)
+                    Player(Excited)::"50 Chicken schnitzels added to my refrigerator!"
+                    karma -= 2
+                    
+                ElseIf 3
+                
+                    Player.modifyActorVar(stock_SaltNPepper, 50)
+                    Player(Excited)::"50 Salt-and-Pepper Steaks added to my refrigerator!"
+                    karma -= 2
+        
+                ElseIf 4
+                
+                    Player.modifyActorVar(stock_WrappedPork, 50)
+                    Player(Excited)::"50 Bacon-Wrapped Porks added to my refrigerator!"
+                    karma -= 2
+            
+                ElseIf 5
+                
+                    Player.modifyActorVar(stock_ChickenKebabs, 50)
+                    Player(Excited)::"50 Chicken Kebabs added to my refrigerator!"
+                    karma -= 2
+
+                ElseIf 6
+                
+                    Player.modifyActorVar(stock_ChineseBeef, 50)
+                    Player(Excited)::"50 Chinese Beef & Broccoli added to my refrigerator!"
+                    karma -= 2
+
+                ElseIf 7
+                
+                    Player.modifyActorVar(stock_SurfNTurf, 50)
+                    Player(Excited)::"50 Surf 'n Turfs added to my refrigerator!"
+                    karma -= 2
+   
+                EndIf
+            
+            ElseIf 1
+            
+                Player(Curious)::"Which type of vegan meals?"
+                0:: "Add 50 Healthy cookies"
+                1:: "Add 50 Winter squash and lentil stews"
+                2:: "Add 50 Cauliflowers Alfredo"
+                3:: "Add 50 Coconutty rices and peas"
+                4:: "Add 50 Peanutty Edamames and noodle salads"
+                5:: "Add 50 Pastas with red pepper Alfredo"
+                6:: "Add 50 Crispy Tofu bowls with fruits"
+                7:: "Add 50 Veggie Lo Meins"
+                99:: "Go back!"
+               
+                If 0
+        
+                    Player.modifyActorVar(stock_HealthyCookie, 50)
+                    Player(Excited)::"50 healthy cookies added to my refrigerator!"
+                    karma -= 2
+                    
+                ElseIf 1
+        
+                    Player.modifyActorVar(stock_LentilStew, 50)
+                    Player(Excited)::"50 winter squash and lentil stews added to my refrigerator!"
+                    karma -= 2
+                    
+                ElseIf 2
+        
+                    Player.modifyActorVar(stock_CauliAlfredo, 50)
+                    Player(Excited)::"50 cauliflowers Alfredo added to my refrigerator!"
+                    karma -= 2
+                    
+                ElseIf 3
+        
+                    Player.modifyActorVar(stock_RicePeas, 50)
+                    Player(Excited)::"50 coconutty rices and peas added to my refrigerator!"
+                    karma -= 2
+        
+                ElseIf 4
+        
+                    Player.modifyActorVar(stock_Edamame, 50)
+                    Player(Excited)::"50 peanutty Edamames and noodle salad addeds to my refrigerator!"
+                    karma -= 2
+            
+                ElseIf 5
+        
+                    Player.modifyActorVar(stock_PastaAlfredo, 50)
+                    Player(Excited)::"50 pastas with red pepper Alfredo added to my refrigerator!"
+                    karma -= 2
+
+                ElseIf 6
+        
+                    Player.modifyActorVar(stock_CrispyTofu, 50)
+                    Player(Excited)::"50 crispy Tofu Bowls added to my refrigerator!"
+                    karma -= 2
+
+                ElseIf 7
+        
+                    Player.modifyActorVar(stock_LoMein, 50)
+                    Player(Excited)::"50 veggie Lo Meins added to my refrigerator!"
+                    karma -= 2
+   
+                EndIf
+            EndIf
+    
+        ElseIf 3
+        
+            Player(Curious)::"Which type of erotic products you want to get more?"
+            0:: "Dildos"
+            1:: "Fleshlights"
+            2:: "Anal Plugs"
+            3:: "Lubricants"
+            4:: "Sex Dolls"
+            5:: "Massage Lotions"
+            6:: "Masturbators"
+            99:: "Go back!"
+            
+            If 0
+                
+                Player(Excited)::"Which dildos should I get?"
+                1:: "Add 50 Leda Dildos"
+                2:: "Add 50 Lelo Inez Gold Dildos"
+                3:: "Add 50 Venetian Casanova Dildos"
+                4:: "Add 50 Pearl Royale Dildos"
+                99:: "Go back!"
+                
+                If 1
+                
+                    Player.modifyActorVar(stock_DildoCheap, 50)
+                    Player(Excited)::"Cheap, but they are the most furry-friendly dildos in the world!"
+                    karma -= 2
+                
+                ElseIf 2
+                
+                    Player.modifyActorVar(stock_DildoQuality, 50)
+                    Player(Excited)::"Maybe not high quality but they are enough to get fun."
+                    karma -= 2
+                
+                ElseIf 3
+                
+                    Player.modifyActorVar(stock_DildoLuxe, 50)
+                    Player(Excited)::"The bestes when you want the ultimate in luxurious indulgence."
+                    karma -= 2
+               
+                ElseIf 4
+                
+                    Player.modifyActorVar(stock_DildoFinest, 50)
+                    Player(Excited)::"Having fun with 50 dildos along side the world's finest crown jewels."
+                    karma -= 2
+                
+                EndIf
+                
+            ElseIf 1
+            
+                Player(Excited)::"Which fleshlights should I get?"
+                1:: "Add 50 Fleshlights Flight: Pilot"
+                2:: "Add 50 Fleshlights Fleshskins Grip Ice"
+                3:: "Add 50 Tenga 3D Modules"
+                4:: "Add 50 Fleshlights Girls & Fleshjack Boys"
+                99:: "Go back!"
+                
+                If 1
+                
+                    Player.modifyActorVar(stock_FleshlightPilot, 50)
+                    Player(Excited)::"Super-soft inner + universal opening + adjustable suction."
+                    karma -= 2
+                
+                ElseIf 2
+                
+                    Player.modifyActorVar(stock_FleshlightGripIce, 50)
+                    Player(Excited)::"Great for twisting sensations+soft, varied inner canal+no suction."
+                    karma -= 2
+                
+                ElseIf 3
+                
+                    Player.modifyActorVar(stock_FleshlightTenga, 50)
+                    Player(Excited)::"Highly unusual+stealth appearance+great for heavier stimulation."
+                    karma -= 2
+                
+                ElseIf 4
+                
+                    Player.modifyActorVar(stock_FleshLightJack, 50)
+                    Player(Excited)::"Perfect for exploring new sexual fantasies."
+                    karma -= 2
+                
+                EndIf
+                
+            ElseIf 2
+            
+                Player(Excited)::"Which butt plugs should I get?"
+                1:: "Add 50 Doc Johnson Naughty Trainer Sets"
+                2:: "Add 50 Tango Butt Plugs"
+                3:: "Add 50 Unbound Shimmys"
+                4:: "Add 50 b-Vibe Vibrating Rimming Butt Plugs"
+                99:: "Go back!"
+                
+                If 1
+                    
+                    Player.modifyActorVar(stock_AnalPlugTrainer, 50)
+                    Player(Excited)::"These trainer sets are perfect for starting out and “to get ready for larger ones !"
+                    karma -= 2
+                
+                ElseIf 2
+                    
+                    Player.modifyActorVar(stock_AnalPlugTango, 50)
+                    Player(Excited)::"Good, when you want something teeny-tiny and not intimidating."
+                    karma -= 2
+                
+                ElseIf 3
+                    
+                    Player.modifyActorVar(stock_AnalPlugUnbound, 50)
+                    Player(Excited)::"These one are noticeably more pointy at the tip. I'm hurry to try it !"
+                    karma -= 2
+                
+                ElseIf 4
+                    
+                    Player.modifyActorVar(stock_AnalPlugBVibe, 50)
+                    Player(Excited)::"These one has beads around the neck of it that simulate rimming,... Fun times at the horizon!"
+                    karma -= 2
+                
+                EndIf
+                
+            ElseIf 3
+            
+                Player(Excited)::"Which lubricants should I get?"
+                1:: "Add 50 bottles of JO H2O Succulent Watermelon"
+                2:: "Add 50 bottles of Coconut Love Oil"
+                3:: "Add 50 bottles of Gun Oil Silicone"
+                4:: "Add 50 bottles of Foria Awaken"
+                99:: "Go back!"
+                
+                If 1
+                    
+                    Player.modifyActorVar(stock_LubeJOH2O, 50)
+                    Player(Excited)::"They make amazing formulas that are so delicious!"
+                    karma -= 2
+                
+                ElseIf 2
+                    
+                    Player.modifyActorVar(stock_LubeCoconut, 50)
+                    Player(Excited)::"Little bit more expensive but, it tastes really good.  It woulb be great for oral sex !"
+                    karma -= 2
+                
+                ElseIf 3
+                    
+                    Player.modifyActorVar(stock_LubeSilicone, 50)
+                    Player(Excited)::"These one are especially nice for anal play. Plus, it really stays slick for a while."
+                    karma -= 2
+                
+                ElseIf 4
+                    
+                    Player.modifyActorVar(stock_LubeForia, 50)
+                    Player(Excited)::"These CBD lubee suppose to enhance pleasure and help make great sex even better. "
+                    karma -= 2
+                
+                EndIf
+                
+            ElseIf 4
+            
+                Player(Excited)::"Which Sex Dolls should I get?"
+                1:: "Add 50 Inflatable Sex Dolls"
+                2:: "Add 50 Classic Tan Sex Dolls"
+                3:: "Add 50 Most Lifelike TPE Sex Dolls"
+                4:: "Add 50 Lifelike AI Sex Robots"
+                99:: "Go back!"
+                
+                If 1
+                    
+                    Player.modifyActorVar(stock_SexDollInflatable, 50)
+                    Player(Excited)::"Perfect for sex party or to give as a joke."
+                    karma -= 2
+                
+                ElseIf 2
+                    
+                    Player.modifyActorVar(stock_SexDollClassic, 50)
+                    Player(Excited)::"That should bring some life at home."
+                    karma -= 2
+                
+                ElseIf 3
+                    
+                    Player.modifyActorVar(stock_SexDollTPE, 50)
+                    Player(Excited)::"For sure, I will pass long long nights with that sex dolls !"
+                    karma -= 2
+                
+                ElseIf 4
+                    
+                    Player.modifyActorVar(stock_SexDollRobot, 50)
+                    Player(Excited)::"Haha! I'm hurry to fuck or being fucked by my sex robots !"
+                    karma -= 2
+                
+                EndIf
+            
+            ElseIf 5
+            
+                Player(Excited)::"Which massage lotions should I get?"
+                1:: "Add 50 bottles of Honeydew Confectionary Delights Massage oil"
+                2:: "Add 50 bottles of Red Flower Massage Lotion"
+                3:: "Add 50 bottles of Naturale Massage Oil"
+                4:: "Add 50 bottles of High THC Formula Massage Lotion"
+                99:: "Go back!"
+                
+                If 1
+                
+                    Player.modifyActorVar(stock_LotionHoneydew, 50)
+                    Player(Excited)::"Cheap but they will be perfect for Valentine’s Day."
+                    karma -= 2
+                
+                ElseIf 2
+                
+                    Player.modifyActorVar(stock_LotionRedFlower, 50)
+                    Player(Excited)::"Good quality and the smell of these oil is really awesome !"
+                    karma -= 2
+                
+                ElseIf 3
+                
+                    Player.modifyActorVar(stock_LotionNaturale, 50)
+                    Player(Excited)::"The best for great massages and for long lasting slippery nights !"
+                    karma -= 2
+                
+                ElseIf 4
+                
+                    Player.modifyActorVar(stock_LotionTHC, 50)
+                    Player(Excited)::"Humm, getting a massage and getting stoned at the same time, we'll see that !"
+                    karma -= 2
+                
+                EndIf
+            
+            ElseIf 6
+            
+                Player(Excited)::"Which masturbators should I get?"
+                1:: "Add 50 Pocket Masturbators"
+                2:: "Add 50 Bubble Butt Realistic Masturbators"
+                3:: "Add 50 Mega Masturbators"
+                4:: "Add 50 Lovebotz Axis Multi-Angle Sex Machines"
+                99:: "Go back!"
+                
+                If 1
+                
+                    Player.modifyActorVar(stock_MasturbatorPocket, 50)
+                    Player(Excited)::"Not high quality but enough to have fun."
+                    karma -= 2
+                
+                ElseIf 2
+                
+                    Player.modifyActorVar(stock_MasturbatorBubble, 50)
+                    Player(Excited)::"The perfect toys to play with a tighter ass !"
+                    karma -= 2
+                
+                ElseIf 3
+                
+                    Player.modifyActorVar(stock_MasturbatorMega, 50)
+                    Player(Evil)::"They maybe not sex dolls, but I got the essential !"
+                    karma -= 2
+                
+                ElseIf 4
+                
+                    Player.modifyActorVar(stock_Lovebotz, 50)
+                    Player(Excited)::"That will makes things so much more exciting in the bedroom !"
+                    karma -= 2
+                
+                EndIf
+            
+            EndIf
+    
+        ElseIf 4
+        
+            Player(Curious)::"Which type of smoking items/products?"
+            0:: "Cigars"
+            1:: "Vape products"
+            2:: "Weeds"
+            99:: "Go back!"
+            
+            If 0
+                Player::"Which cigars I will get?"
+                0:: "Add 50 Davidoff Yamasá"
+                1:: "Add 50 Romeo y Julieta"
+                2:: "Add 50 Montecristo"
+                3:: "Add 50 King of Denmark Limited Edition"
+                4:: "Add 50 Cohiba"
+                99:: "Go back!"
+        
+                If 0
+            
+                    Player.modifyActorVar(stock_Davidoff, 50)
+                    karma -= 2
+                                
+                Elseif 1
+            
+                    Player.modifyActorVar(stock_Romeo, 50)
+                    karma -= 2
+                
+                Elseif 2
+            
+                    Player.modifyActorVar(stock_Montecristo, 50)
+                    karma -= 2
+                
+                Elseif 3
+            
+                    Player.modifyActorVar(stock_KDcigars, 50)
+                    karma -= 2
+                
+                Elseif 4
+            
+                    Player.modifyActorVar(stock_Cohiba, 50)
+                    karma -= 2
+                
+                Endif
+            
+            ElseIf 1
+            
+                Player::"Which vape juices I will get?"
+                0:: "Add 50 bottles of blue raspberry"
+                1:: "Add 50 bottles of redcurrant, grape & cherry"
+                2:: "Add 50 bottles of strawberry guava"
+                3:: "Add 50 bottles of lemon berry pie"
+                4:: "Add 50 bottles of Kanzi"
+                99:: "Go back!"
+        
+                If 0
+                
+                    Player.modifyActorVar(stock_Vapraspberry, 500)
+                    karma -= 2
+                                
+                Elseif 1
+                
+                    Player.modifyActorVar(stock_Vapgrape, 500)
+                    karma -= 2
+                
+                Elseif 2
+                
+                    Player.modifyActorVar(stock_Vapstrawberry, 500)
+                    karma -= 2
+                
+                Elseif 3
+                
+                    Player.modifyActorVar(stock_Vaplemon, 500)
+                    karma -= 2
+                
+                Elseif 4
+                    
+                    Player.modifyActorVar(stock_VapKanzi, 500)
+                    karma -= 2
+                
+                Endif
+                
+            ElseIf 2
+            
+                Player::"Which strains I will get?"
+                0:: "100 grams of AK 47 (13-20%"
+                1:: "100 grams of Sunset Sherbet (15-19%)"
+                2:: "100 grams of White Widow (18-25%)"
+                3:: "100 grams of Pineapple Express (19-25%)"
+                4:: "100 grams of OG Kush (20-25%)"
+                5:: "100 grams of Girl Scout Cookies (25-28%)"
+                6:: "100 grams of Bruce Banner (25-29%)"
+                7:: "100 grams of Gorilla Glue (25-30%)"
+                8:: "Go back!"
+        
+                If 0
+                
+                    Player.modifyActorVar(stock_AK47weed, 100)
+                    Player(Excited)::"This strain produces happy memories, which makes me laugh and smile, during bad moments."
+                    karma -= 2
+                                
+                Elseif 1
+                
+                    Player.modifyActorVar(stock_SSweed, 100)
+                    Player(Excited)::"Powerful psychoactive effects which boost your motivation, creativity, imagination and inspiration."
+                    karma -= 2
+                
+                Elseif 2
+                
+                    Player.modifyActorVar(stock_WWweed, 100)
+                    Player(Excited)::"A delicious blend of earthy, wooded and flowery tastes. That one, smell very strong !"
+                    karma -= 2
+                
+                Elseif 3
+                
+                    Player.modifyActorVar(stock_PEweed, 100)
+                    Player(Excited)::"Perfect for smoking with friends during parties and social gatherings."
+                    karma -= 2
+                
+                Elseif 4
+                
+                    Player.modifyActorVar(stock_OGKweed, 100)
+                    Player(Excited)::"For a rapid headrush, an uplifted mood and euphoria as well as increased mental stimulation."
+                    karma -= 2
+                
+                Elseif 5
+                
+                    Player.modifyActorVar(stock_GSCweed, 100)
+                    Player(Excited)::"It can help to feel creative, euphoric, relaxed and couch-locked."
+                    karma -= 2
+                
+                Elseif 6
+                
+                    Player.modifyActorVar(stock_BBweed, 100)
+                    Player(Excited)::"The top wake and bake strains due to its ability to make you creative and inspired."
+                    karma -= 2
+                
+                Elseif 7
+                
+                    Player.modifyActorVar(stock_GGweed, 100)
+                    Player(Excited)::"Increased mental clarity, stimulation, energy and uber-relaxing effects"
+                    karma -= 2
+                
+                Endif
+            
+            EndIf
+        
+    
+        ElseIf 5
+        
+            Player(Curious)::"Which type of snacks?"
+            0:: "Candies"
+            1:: "Popcorns"
+            99:: "Go back!"
+            
+            If 0
+            
+                Player(Curious)::"Which type of candies?"
+                0:: "Add 50 boxes of Pop Rocks"
+                1:: "Add 50 Cotton Candies"
+                2:: "Add 50 packs of Gummi Bears"
+                3:: "Add 50 boxes of Smarties"
+                4:: "Add 50 packs of Jolly Ranchers"
+                5:: "Add 50 packs of Peanut Butter Cups"
+                6:: "Add 50 packs of Licorices"
+                7:: "Add 50 power bars"
+                8:: "Add 50 Big balls hickey"
+                99:: "Go back!"
+               
+                If 0
+                
+                    Player.modifyActorVar(stock_PopRocks, 50)
+                    Player(Excited)::"50 Pop Rocks boxes added to my pockets!"
+                    karma -= 2
+                    
+                ElseIf 1
+                
+                    Player.modifyActorVar(stock_CottonCandy, 50)
+                    Player(Excited)::"50 Cotton Candies added to my pockets!"
+                    karma -= 2
+                    
+                ElseIf 2
+                
+                    Player.modifyActorVar(stock_GummiBears, 50)
+                    Player(Excited)::"50 packs Gummi Bears added to my pockets!"
+                    karma -= 2
+                    
+                ElseIf 3
+                
+                    Player.modifyActorVar(stock_Smarties, 50)
+                    Player(Excited)::"50 boxes of Smarties added to my pockets!"
+                    karma -= 2
+        
+                ElseIf 4
+                
+                    Player.modifyActorVar(stock_JollyRanchers, 50)
+                    Player(Excited)::"50 packs of Jolly Ranchers added to my pockets!"
+                    karma -= 2
+            
+                ElseIf 5
+                
+                    Player.modifyActorVar(stock_PeanutCups, 50)
+                    Player(Excited)::"50 packs of Peanut Butter Cups added to my pockets!"
+                    karma -= 2
+
+                ElseIf 6
+                
+                    Player.modifyActorVar(stock_Licorice, 50)
+                    Player(Excited)::"50 packs of Licorices added to my pockets!"
+                    karma -= 2
+
+                ElseIf 7
+                
+                    Player.modifyActorVar(stock_PowerBar, 50)
+                    Player(Excited)::"50 power bars added to my pockets!"
+                    karma -= 2
+        
+                ElseIf 8
+                
+                    Player.modifyActorVar(stock_BigBallHickey, 50)
+                    Player(Excited)::"50 Big balls hickey added to my pockets!"
+                    karma -= 2
+   
+                EndIf
+        
+            ElseIf 1
+            
+                Player(Curious)::"Which type of popcorns?"
+                0::"Add 50 bags of plain popcorns"
+                1::"Add 50 bags of butter popcorns"
+                2::"Add 50 bags of popcorn sweet mix"
+                3::"Add 50 bags of healthy popcorns"
+                99:: "Go back!"
+               
+                If 0
+                
+                    Player.modifyActorVar(stock_PlainPopcorn, 50)
+                    Player(Excited)::"50 bags of plain popcorns added to my pantry!"
+                    karma -= 2
+                    
+                ElseIf 1
+                
+                    Player.modifyActorVar(stock_ButterPopcorn, 50)
+                    Player(Excited)::"50 bags of butter popcorns added to my pantry!"
+                    karma -= 2
+                    
+                ElseIf 2
+                
+                    Player.modifyActorVar(stock_PopcornMix, 50)
+                    Player(Excited)::"50 bags of popcorn sweet mix added to my pantry!"
+                    karma -= 2
+                    
+                ElseIf 3
+                
+                    Player.modifyActorVar(stock_HealthyPopcorn, 50)
+                    Player(Excited)::"50 bags of healthy popcorns added to my pantry!"
+                    karma -= 2
+        
+                EndIf
+            
+            EndIf
+           
+        Else
+    
+            StayinMenu = false
+    
+        EndIf
+
+    EndWhile
+
+SceneEnd()

@@ -3,13 +3,14 @@
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
 <h3>rk_God_Mod :</h3>
-<p>Version: 0.0.1 (WIP)</p>
-<p>Version fully working but not finished, will be added to LP-ModManager when finished!</p>
+<p>Version: 1.0.0</p>
 <br>
 <p>The mod for cheating in LifePlay!</p>
-<p>You need money faster, more skills, more items,....</p>
-<p>Some options cannot be changed as this may create bugs or messed up your saves...</p>
-<p>Some mods already have a cheating section, this mod just add a link to them...</p>
+<p>You need money faster, more skills, more items,....that's the mod you need!</p>
+<p>Some options cannot be changed as this may create bugs or messed up your saves.</p>
+<p>Some mods already have a cheating section, in that case, this mod will send you to these sections.</p>
+<p>This mod will always expand by time.</p>
+<p>If a new LifePlay mod appears, I will try to include is items/options.</p>
 <br>
 <p><strong>The mod give ability to:</strong></p>
 <p>1- Get more money (4 choices)</p>
@@ -19,11 +20,12 @@
 <p>5- Improve Sex preferences</p>
 <p>6- Improve inventory</p>
 <br>
-<p><strong>Improve stats of these mods:</strong></p>
+<p><strong>Improve stats/inventories of these mods:</strong></p>
 <p>- Gang Of LifePlay</p>
-<p>- PornEmpire</p>
 <p>- Money Maker</p>
+<p>- PornEmpire</p>
 <p>- Sex Guru</p>
+<p>- Shop Addons</p>
 <p>- Weed Biz/p>
 <br>
 <hr>

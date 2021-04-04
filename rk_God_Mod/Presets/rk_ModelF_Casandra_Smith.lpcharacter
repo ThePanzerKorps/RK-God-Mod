@@ -1,0 +1,193 @@
+// Information
+INFO Is_Male: 100% false
+INFO Interested_In_Men: 100% true
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% false
+INFO First_Name: 100% Casandra
+INFO Last_Name: 100% Smith
+INFO Race: 100% Daz
+INFO Genital: 100% Vagina
+
+// Morphs
+MORPH Genesis8Female__CTRLFaceAngle: 100% 0.004606
+MORPH Genesis8Female__RFMC_Nostril Wing UnderCurves 02: 100% 0.519404
+MORPH Genesis8Female__RFMC_NoseWings Narrow: 100% 0.590928
+MORPH Genesis8Female__RFMC_NoseTip Creased: 100% 0.48407
+MORPH Genesis8Female__RFMC_NoseTip Angle Up: 100% 0.890599
+MORPH Genesis8Female__RFMC_Nose Shape 09: 100% 0.823027
+MORPH Genesis8Female__RFMC_Nose Shape 08: 100% 0.504505
+MORPH Genesis8Female__RFMC_Nose Shape 07: 100% 0.881191
+MORPH Genesis8Female__RFMC_Nose Shape 05: 100% 0.928106
+MORPH Genesis8Female__RFMC_Nose Emphasized: 100% 0.64768
+MORPH Genesis8Female__RFMC_Nose Angles: 100% 0.008102
+MORPH Genesis8Female__RFMC_Mouth Upper Narrow: 100% 0.927479
+MORPH Genesis8Female__RFMC_Mouth Upper Middle Curves: 100% 0.404962
+MORPH Genesis8Female__RFMC_Mouth Upper Fuller: 100% 0.501354
+MORPH Genesis8Female__RFMC_Mouth Peaks Rounded: 100% 0.308056
+MORPH Genesis8Female__RFMC_Mouth Lower Narrow: 100% 0.900228
+MORPH Genesis8Female__RFMC_Mouth Lower Fuller: 100% 0.276522
+MORPH Genesis8Female__RFMC_Mouth Corners Distance: 100% 0.232965
+MORPH Genesis8Female__RFMC_Jaw Under Bump: 100% 0.119221
+MORPH Genesis8Female__RFMC_Jaw Slim: 100% 0.691108
+MORPH Genesis8Female__RFMC_Jaw and Chin Shape 01: 100% 0.305567
+MORPH Genesis8Female__RFMC_Forehead Width: 100% 1.0
+MORPH Genesis8Female__RFMC_Forehead Temples Define: 100% 0.007197
+MORPH Genesis8Female__RFMC_Forehead Heights: 100% 0.936951
+MORPH Genesis8Female__RFMC_Face Upper Depth: 100% 0.012739
+MORPH Genesis8Female__RFMC_Face Slim: 100% 0.001834
+MORPH Genesis8Female__RFMC_Face Skinny: 100% 0.659412
+MORPH Genesis8Female__RFMC_Cheeks Young: 100% 1.0
+MORPH Genesis8Female__RFMC_Cheeks Size: 100% 0.108806
+MORPH Genesis8Female__RFMC_Cheeks Shape 06: 100% 0.054385
+MORPH Genesis8Female__RFMC_Cheeks Shape 05: 100% 0.336094
+MORPH Genesis8Female__RFMC_Cheeks Shape 04: 100% 0.078731
+MORPH Genesis8Female__RFMC_Cheeks Shape 03: 100% 0.457819
+MORPH Genesis8Female__RFMC_Cheeks Shape 02: 100% 0.039647
+MORPH Genesis8Female__Nostrils Front Height: 100% 0.531286
+MORPH Genesis8Female__Nose Wing Height: 100% 0.967724
+MORPH Genesis8Female__Nose Wing Arc: 100% 0.456891
+MORPH Genesis8Female__Nose Style Slopped: 100% 0.254637
+MORPH Genesis8Female__Nose Curve In: 100% 0.491489
+MORPH Genesis8Female__Nose Bridge Style Low: 100% 0.931153
+MORPH Genesis8Female__Nose Angle Up: 100% 0.290587
+MORPH Genesis8Female__Eyes Distance: 100% 0.093988
+MORPH Genesis8Female__Cheeks Young: 100% 0.972387
+MORPH Genesis8Female__FBMEmaciated: 100% 0.196194
+MORPH Genesis8Female__PHMFaceYoung: 100% 0.00813
+MORPH Genesis8Female__PBMUpperArmsSize: 100% 0.217588
+MORPH Genesis8Female__PBMStomachSoften: 100% 0.940309
+MORPH Genesis8Female__PBMHandsThickness: 100% 0.138536
+MORPH Genesis8Female__PBMForearmsSize: 100% 0.177732
+MORPH Genesis8Female__PBMBreastsPerkSide: 100% 0.662212
+MORPH Genesis8Female__PBMBreastsNaturalR: 100% 0.286811
+MORPH Genesis8Female__PBMBreastsNaturalL: 100% 0.186428
+MORPH Genesis8Female__PBMAreolaePerk: 100% 0.917733
+MORPH Genesis8Female__PBMAreolaeDepth: 100% 0.889714
+MORPH Genesis8Female__FBMVoluptuous: 100% 0.737044
+MORPH Genesis8Female__FBMThin: 100% 0.219587
+MORPH Genesis8Female__FBMPearFigure: 100% 0.19697
+MORPH Genesis8FemaleEyelashes__RFMC_Cheeks Shape 06: 100% 0.054385
+MORPH Genesis8FemaleEyelashes__Eyes Distance: 100% 0.093988
+MORPH Genesis8FemaleEyelashes__PHMFaceYoung: 100% 0.00813
+SCALE X: 100% 1.0
+SCALE Y: 100% 1.0
+SCALE Z: 100% 1.0
+
+//Hair
+HAIR Hairstyle: 100% CyndaHair
+HAIR Hair_Thickness: 100% 1.0
+HAIR Hair_Color_R: 100% 0.2
+HAIR Hair_Color_G: 100% 0.05
+HAIR Hair_Color_B: 100% 0.0
+HAIR Hair_Color_A: 100% 0.85
+
+HAIR Brow_Color_R: 100% 0.0
+HAIR Brow_Color_G: 100% 0.0
+HAIR Brow_Color_B: 100% 0.0
+HAIR Brow_Color_A: 100% 1.0
+
+// Skin
+SKIN Eye_Color_R: 100% 0.0
+SKIN Eye_Color_G: 100% 0.45
+SKIN Eye_Color_B: 100% 0.1
+SKIN Eye_Color_A: 100% 0.8
+SKIN Face_Texture: 100% Bridget8Face01D_1001
+SKIN Skin_Color_R: 100% 0.83
+SKIN Skin_Color_G: 100% 0.62
+SKIN Skin_Color_B: 100% 0.53
+SKIN Skin_Color_A: 100% 1.0
+SKIN BHairColor_R: 100% 0.4
+SKIN BHairColor_G: 100% 0.0
+SKIN BHairColor_B: 100% 0.0
+SKIN BHairColor_A: 100% 1.0
+SKIN Skin_Roughness: 100% 0.013889
+SKIN Skin_Oil: 100% 0.25
+SKIN Skin_Fresnel: 100% 0.0
+SKIN Skin_Age: 100% 0.0
+SKIN Skin_Sagging: 100% 0.0
+SKIN Muscle_Tone: 100% 0.0
+SKIN BHairThickness: 100% 0.0
+SKIN BHairstyle: 100% Pubes06
+SKIN Tattoo_Arm: 100% NoHair
+SKIN Tattoo_Torso: 100% NoHair
+SKIN Tattoo_Leg: 100% NoHair
+
+// Stats
+STAT rkOpenedWeedCartel: 100% 0.0
+STAT rkOpenedSexGuru: 100% 0.0
+STAT glGunAmmo: 100% 0.0
+STAT glGunShootingSkill: 100% 0.0
+STAT glHealth: 100% 100.0
+STAT glKillCount: 100% 0.0
+STAT glLockPickingSkill: 100% 0.0
+STAT children: 100% 0.0
+STAT fertility: 100% 3.0
+STAT stock_condom: 100% 10.0
+STAT stock_pill: 100% 0.0
+STAT bargain: 100% 0.0
+STAT brand: 100% 0.0
+STAT sentence: 100% 0.0
+STAT modelfame: 100% 0.0
+STAT age: 100% 33.0
+STAT money: 100% 3000.0
+STAT perks: 100% 0.0
+STAT attractiveness: 100% 50.0
+STAT cooking: 100% 10.0
+STAT dance: 100% 10.0
+STAT fitness: 100% 50.0
+STAT intelligence: 100% 50.0
+STAT interpersonal: 100% 50.0
+STAT jobexperience: 100% 10.0
+STAT jobperformance: 100% 0.0
+STAT karma: 100% 50.0
+STAT martial: 100% 10.0
+STAT masochist: 100% 0.0
+STAT muscle: 100% 25.0
+STAT music: 100% 10.0
+STAT perversion: 100% 30.0
+STAT pornfame: 100% 0.0
+STAT sneak: 100% 10.0
+STAT likes_anal: 100% 20.0
+STAT likes_bondage: 100% 20.0
+STAT likes_boobjob: 100% 20.0
+STAT likes_cowgirl: 100% 20.0
+STAT likes_doggy: 100% 20.0
+STAT likes_handjob: 100% 20.0
+STAT likes_missionary: 100% 20.0
+STAT likes_oral: 100% 20.0
+STAT likes_public: 100% 20.0
+STAT likes_rcowgirl: 100% 20.0
+STAT likes_rough: 100% 20.0
+STAT likes_sidefuck: 100% 20.0
+STAT likes_toys: 100% 20.0
+STAT likes_tribadism: 100% 20.0
+STAT likes_vaginal: 100% 20.0
+STAT prone_to_orgasm: 100% 50.0
+STAT arousal: 100% 0.0
+STAT energy: 100% 100.0
+STAT intoxication: 100% 0.0
+STAT mood: 100% 100.0
+STAT appliance_value: 100% 0.0
+STAT car_value: 100% 0.0
+STAT furniture_value: 100% 0.0
+STAT stock_alcohol: 100% 0.0
+STAT stock_book: 100% 0.0
+STAT stock_coffee: 100% 0.0
+STAT stock_flower: 100% 0.0
+STAT stock_gift: 100% 0.0
+STAT stock_haircare: 100% 0.0
+STAT stock_ingredient: 100% 0.0
+STAT stock_juice: 100% 0.0
+STAT stock_makeup: 100% 0.0
+STAT stock_meal: 100% 0.0
+STAT stock_movie: 100% 0.0
+STAT stock_musicalinstrument: 100% 0.0
+STAT stock_petfood: 100% 0.0
+STAT stock_photo: 100% 0.0
+STAT stock_skincare: 100% 0.0
+STAT stock_snack: 100% 0.0
+STAT stock_soda: 100% 0.0
+STAT stock_supplement: 100% 0.0
+STAT stock_tea: 100% 0.0
+STAT stock_tobacco: 100% 0.0
+STAT stock_video: 100% 0.0

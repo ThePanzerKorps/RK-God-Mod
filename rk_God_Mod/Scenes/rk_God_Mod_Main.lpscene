@@ -7,6 +7,46 @@ OTHER: none
 
 SceneStart()
 
+    CasandraSmith = generatePersonTemporary(rk_ModelF_Casandra_Smith)
+    CasandraSmith.dress()
+    CasandraSmith.show()
+    CasandraSmith:attractiontoplayer => Random(50, 98)
+    CasandraSmith:rapportwithplayer => Random(50, 98)
+    CasandraSmith:arousal => Random(50, 98)
+    CasandraSmith:perversion => Random(50, 98)
+    CasandraSmith.movetoPersonStand(Player, 50)
+    CasandraSmith.animate(socialize)
+    CasandraSmith(Happy)::"So my dear, you want to cheat?"
+    CasandraSmith(Happy)::"Every time you cheat you increase your Karma level...nothing is entirely free in the life! ;)"
+    CasandraSmith.makePermanent()
+    
+    If [Player:perversion > 50 && Player:arousal > 15] && [CasandraSmith:perversion > 50 && CasandraSmith:arousal > 15]
+        CasandraSmith(Flirty)::"But, if you want, sexy <Player.boy_or_girl>!"
+        CasandraSmith(Happy)::"We can play together before you cheat?"
+        "Do I accept her offer?"
+        0::"I accept"
+        1::"I refuse"
+        
+        If 0
+        
+            CasandraSmith.show(4)
+            CasandraSmith.strip()
+            Player.strip()
+
+            Sex(CasandraSmith, Player)
+            perversion += 0.35
+            CasandraSmith:attractiontoplayer += Random(0, 3)
+
+            passTime(0.15, 0.25)
+
+            CasandraSmith(Serene):: "That was good!"
+            CasandraSmith.dress()
+        
+        EndIf
+        
+        
+    EndIf
+    
     StayinMenu = true
     While StayinMenu
     
@@ -21,6 +61,7 @@ SceneStart()
         31:: isModEnabled(nn_PornEmpire) ::"PornEmpire Cheats"
         50:: isModEnabled(rk_MoneyMaker) ::"Money Maker Cheats"
         55:: isModEnabled(rk_Sex_Guru) ::"Sex Guru Cheats"
+        56:: isModEnabled(rk_ShopAddons) ::"Shop Addons Cheats"
         59:: isModEnabled(rk_Weed_biz) ::"Weed Biz Cheats"
         99::"Back to the game!"
 
@@ -46,23 +87,31 @@ SceneStart()
             
                 "<GetMoreMoneyLoc> have been added to your money!"
                 money += GetMoreMoney
+                karma -= 2
                 
             ElseIf 1
             
                 "<GetMoreMoney1Loc> have been added to your money!"
                 money += GetMoreMoney1
+                karma -= 2
                 
             ElseIf 2
             
                 "<GetMoreMoney2Loc> have been added to your money!"
                 money += GetMoreMoney2
+                karma -= 2
                 
             ElseIf 3
             
                 "<GetMoreMoney3Loc> have been added to your money!"
                 money += GetMoreMoney3
+                karma -= 2
                 
             EndIf
+        
+            CasandraSmith.stripOne()
+            CasandraSmith:attractiontoplayer += Random(0, 2)
+            CasandraSmith:rapportwithplayer += Random(0, 2)
 
         ElseIf 1
             
@@ -148,6 +197,10 @@ SceneStart()
                 karma -= 2
             
             EndIf
+        
+            CasandraSmith.stripOne()
+            CasandraSmith:attractiontoplayer += Random(0, 2)
+            CasandraSmith:rapportwithplayer += Random(0, 2)
             
         ElseIf 2
             
@@ -156,7 +209,8 @@ SceneStart()
             0::"Attractiveness (+<Add50Points>)"
             1::"Energy (+<Add50Points>)"
             2::"Intelligence (+<Add50Points>)"
-            3::"Muscle (+<Add50Points>)"
+            3::"Karma (+<Add50Points>)"
+            4::"Muscle (+<Add50Points>)"
             99::"Back!"
             
             If 0
@@ -179,11 +233,21 @@ SceneStart()
                 
             ElseIf 3
             
+                "<Add50Points> points have been added to your karma level!"
+                karma += 50
+                Intelligence -= 2
+            
+            ElseIf 4
+            
                 "<Add50Points> points have been added to your muscle level!"
                 muscle += 50
                 karma -= 2
             
             EndIf
+        
+            CasandraSmith.stripOne()
+            CasandraSmith:attractiontoplayer += Random(0, 2)
+            CasandraSmith:rapportwithplayer += Random(0, 2)
         
         ElseIf 3
             
@@ -294,6 +358,11 @@ SceneStart()
                 karma -= 2
             
             EndIf
+        
+            CasandraSmith.stripOne()
+            CasandraSmith:attractiontoplayer += Random(0, 2)
+            CasandraSmith:rapportwithplayer += Random(0, 2)
+            
         ElseIf 4
         
             openMenu(Stat)
@@ -484,7 +553,10 @@ SceneStart()
                 EndIf
             
             EndIf
-            
+        
+            CasandraSmith.stripOne()
+            CasandraSmith:attractiontoplayer += Random(0, 2)
+            CasandraSmith:rapportwithplayer += Random(0, 2)
             
         ElseIf 30
             
@@ -541,6 +613,10 @@ SceneStart()
                 karma -= 2
 
             EndIf
+        
+            CasandraSmith.stripOne()
+            CasandraSmith:attractiontoplayer += Random(0, 2)
+            CasandraSmith:rapportwithplayer += Random(0, 2)
             
         ElseIf 31
         
@@ -702,10 +778,19 @@ SceneStart()
                 Endif
 
             EndIf
+        
+            CasandraSmith.stripOne()
+            CasandraSmith:attractiontoplayer += Random(0, 2)
+            CasandraSmith:rapportwithplayer += Random(0, 2)
             
         ElseIf 55
         
             followUp(rk_Cheat_religion)
+            StayinMenu = false
+            
+        ElseIf 56
+        
+            followUp(rk_Cheat_ShopAddons)
             StayinMenu = false
             
         ElseIf 59
