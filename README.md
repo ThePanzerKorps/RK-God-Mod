@@ -26,7 +26,7 @@
 <p>- PornEmpire</p>
 <p>- Sex Guru</p>
 <p>- Shop Addons</p>
-<p>- Weed Biz/p>
+<p>- Weed Biz</p>
 <br>
 <hr>
 <br>
