@@ -12,11 +12,12 @@
 <p>Some mods already have a cheating section, this mod just add a link to them...</p>
 <br>
 <p><strong>The mod give ability to:</strong></p>
-<p>1- Get more money ($100 000 US)</p>
+<p>1- Get more money (4 choices)</p>
 <p>2- Improve Skills stats</p>
 <p>3- Improve Body/Health stats</p>
 <p>4- Improve Sexual stats</p>
-<p>5- Improve inventory</p>
+<p>5- Improve Sex preferences</p>
+<p>6- Improve inventory</p>
 <br>
 <p><strong>Improve stats of these mods:</strong></p>
 <p>- Gang Of LifePlay</p>

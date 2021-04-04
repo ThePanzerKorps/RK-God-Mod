@@ -7,9 +7,6 @@ OTHER: none
 
 SceneStart()
 
-    GetMoreMoney = 100000
-    GetMoreMoneyLoc = GetMoreMoney.convertToLocalCurrency()
-    
     StayinMenu = true
     While StayinMenu
     
@@ -18,6 +15,7 @@ SceneStart()
         1::"Improve Skills stats"
         2::"Improve Body/Health stats"
         3::"Improve Sexual stats"
+        4::"Improve Sex Preferences"
         10::"Improve inventory"
         30:: isModEnabled(nn_GangsOfLifePlay) ::"Gang Of LifePlay Cheats"
         31:: isModEnabled(nn_PornEmpire) ::"PornEmpire Cheats"
@@ -28,9 +26,44 @@ SceneStart()
 
         If 0
         
-            "<GetMoreMoneyLoc> have been added to your money!"
-            money += GetMoreMoney
+            GetMoreMoney = 50000
+            GetMoreMoneyLoc = GetMoreMoney.convertToLocalCurrency()
+            GetMoreMoney1 = 100000
+            GetMoreMoney1Loc = GetMoreMoney1.convertToLocalCurrency()
+            GetMoreMoney2 = 500000
+            GetMoreMoney2Loc = GetMoreMoney2.convertToLocalCurrency()
+            GetMoreMoney3 = 1000000
+            GetMoreMoney3Loc = GetMoreMoney3.convertToLocalCurrency()
             
+            "How much do you need?"
+            0::"I need <GetMoreMoneyLoc>"
+            1::"I need <GetMoreMoney1Loc>"
+            2::"I need <GetMoreMoney2Loc>"
+            3::"I need <GetMoreMoney3Loc>"
+            99::"Back to the game!"
+            
+            If 0
+            
+                "<GetMoreMoneyLoc> have been added to your money!"
+                money += GetMoreMoney
+                
+            ElseIf 1
+            
+                "<GetMoreMoney1Loc> have been added to your money!"
+                money += GetMoreMoney1
+                
+            ElseIf 2
+            
+                "<GetMoreMoney2Loc> have been added to your money!"
+                money += GetMoreMoney2
+                
+            ElseIf 3
+            
+                "<GetMoreMoney3Loc> have been added to your money!"
+                money += GetMoreMoney3
+                
+            EndIf
+
         ElseIf 1
             
             Add50Points = 50
@@ -43,8 +76,9 @@ SceneStart()
             5::"Job performance (+<Add50Points>)"
             6::"Martial (+<Add50Points>)"
             7::"Music (+<Add50Points>)"
-            8::"Pornfame (+<Add50Points>)"
-            9::"Sneaking (+<Add50Points>)"
+            8::"Perks (Add 5 Points)"
+            9::"Pornfame (+<Add50Points>)"
+            10::"Sneaking (+<Add50Points>)"
             99::"Back!"
             
             If 0
@@ -92,16 +126,22 @@ SceneStart()
             ElseIf 7
             
                 "<Add50Points> points have been added to your music skills!"
+                perks += 5
+                karma -= 5
+            
+            ElseIf 8
+            
+                "<Add50Points> points have been added to your music skills!"
                 music += 50
                 karma -= 2
                  
-            ElseIf 8
+            ElseIf 9
             
                 "<Add50Points> points have been added to your Pornfame skills!"
                 pornfame += 50
                 karma -= 2
                  
-            ElseIf 9
+            ElseIf 10
             
                 "<Add50Points> points have been added to your sneaking skills!"
                 sneak += 50
@@ -254,6 +294,10 @@ SceneStart()
                 karma -= 2
             
             EndIf
+        ElseIf 4
+        
+            openMenu(Stat)
+            StayinMenu = false
         
         ElseIf 10
         
