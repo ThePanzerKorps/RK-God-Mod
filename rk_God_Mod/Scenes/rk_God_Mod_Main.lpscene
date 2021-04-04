@@ -11,7 +11,7 @@ SceneStart()
     While StayinMenu
     
         "Where do you want to cheat?"
-        0::"Get more money (<GetMoreMoneyLoc>)"
+        0::"Get more money"
         1::"Improve Skills stats"
         2::"Improve Body/Health stats"
         3::"Improve Sexual stats"
