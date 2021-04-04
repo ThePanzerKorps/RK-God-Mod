@@ -126,14 +126,14 @@ SceneStart()
             ElseIf 7
             
                 "<Add50Points> points have been added to your music skills!"
-                perks += 5
-                karma -= 5
-            
-            ElseIf 8
-            
-                "<Add50Points> points have been added to your music skills!"
                 music += 50
                 karma -= 2
+            
+            ElseIf 8
+
+                "5 points have been added to your perk skills!"
+                perks += 5
+                karma -= 5
                  
             ElseIf 9
             
