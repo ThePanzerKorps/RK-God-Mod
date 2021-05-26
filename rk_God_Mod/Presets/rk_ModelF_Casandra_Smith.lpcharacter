@@ -2,7 +2,7 @@
 INFO Is_Male: 100% false
 INFO Interested_In_Men: 100% true
 INFO Interested_In_Women: 100% true
-INFO Interested_In_Transgender: 100% false
+INFO Interested_In_Transgender: 100% true
 INFO First_Name: 100% Casandra
 INFO Last_Name: 100% Smith
 INFO Race: 100% Daz
@@ -144,7 +144,7 @@ STAT martial: 100% 10.0
 STAT masochist: 100% 0.0
 STAT muscle: 100% 25.0
 STAT music: 100% 10.0
-STAT perversion: 100% 30.0
+STAT perversion: 100% 75.0
 STAT pornfame: 100% 0.0
 STAT sneak: 100% 10.0
 STAT likes_anal: 100% 20.0
@@ -163,7 +163,7 @@ STAT likes_toys: 100% 20.0
 STAT likes_tribadism: 100% 20.0
 STAT likes_vaginal: 100% 20.0
 STAT prone_to_orgasm: 100% 50.0
-STAT arousal: 100% 0.0
+STAT arousal: 100% 40.0
 STAT energy: 100% 100.0
 STAT intoxication: 100% 0.0
 STAT mood: 100% 100.0

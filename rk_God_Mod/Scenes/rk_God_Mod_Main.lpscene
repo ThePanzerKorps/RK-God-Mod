@@ -5,249 +5,331 @@ WHO: none
 OTHER: none
 
 
-SceneStart()
+    SceneStart()
 
-    CasandraSmith = generatePersonTemporary(rk_ModelF_Casandra_Smith)
-    CasandraSmith.dress()
-    CasandraSmith.show()
-    CasandraSmith:attractiontoplayer => Random(50, 98)
-    CasandraSmith:rapportwithplayer => Random(50, 98)
-    CasandraSmith:arousal => Random(50, 98)
-    CasandraSmith:perversion => Random(50, 98)
-    CasandraSmith.movetoPersonStand(Player, 50)
-    CasandraSmith.animate(socialize)
-    CasandraSmith(Happy)::"So my dear, you want to cheat?"
-    CasandraSmith(Happy)::"Every time you cheat you increase your Karma level...nothing is entirely free in the life! ;)"
-    CasandraSmith.makePermanent()
-    
-    If [Player:perversion > 50 && Player:arousal > 15] && [CasandraSmith:perversion > 50 && CasandraSmith:arousal > 15]
-        CasandraSmith(Flirty)::"But, if you want, sexy <Player.boy_or_girl>!"
-        CasandraSmith(Happy)::"We can play together before you cheat?"
-        "Do I accept her offer?"
-        0::"I accept"
-        1::"I refuse"
-        
-        If 0
-        
-            CasandraSmith.show(4)
-            CasandraSmith.strip()
-            Player.strip()
-
-            Sex(CasandraSmith, Player)
-            perversion += 0.35
-            CasandraSmith:attractiontoplayer += Random(0, 3)
-
-            passTime(0.15, 0.25)
-
-            CasandraSmith(Serene):: "That was good!"
-            CasandraSmith.dress()
-        
+        // If the player is dating someone we need to end the date, so we can check this NPCs stats as well
+        If CurrentCompanion.isValid()
+            Player::"<CurrentCompanion.Name>, I need to go somewhere, don't ask, but it's for our best. See you later!"
+            endDate()
         EndIf
         
+        FirstTimeHereC = Player.getActorVar(rk_GM_CheatFirstTimeHereC)
+        CasandraSmith = generatePerson(rk_ModelF_Casandra_Smith)
+        CasandraSmith.hide()
+        FirstTimeHereL = Player.getActorVar(rk_GM_CheatFirstTimeHereL)
+        LukeBetton = generatePerson(rk_ModelM_Luke_Betton)
+        LukeBetton.hide()
         
-    EndIf
-    
-    StayinMenu = true
-    While StayinMenu
-    
-        "Where do you want to cheat?"
-        0::"Get more money"
-        1::"Improve Skills stats"
-        2::"Improve Body/Health stats"
-        3::"Improve Sexual stats"
-        4::"Improve Sex Preferences"
-        10::"Improve inventory"
-        30:: isModEnabled(nn_GangsOfLifePlay) ::"Gang Of LifePlay Cheats"
-        31:: isModEnabled(nn_PornEmpire) ::"PornEmpire Cheats"
-        50:: isModEnabled(rk_MoneyMaker) ::"Money Maker Cheats"
-        55:: isModEnabled(rk_Sex_Guru) ::"Sex Guru Cheats"
-        56:: isModEnabled(rk_ShopAddons) ::"Shop Addons Cheats"
-        59:: isModEnabled(rk_Weed_biz) ::"Weed Biz Cheats"
-        99::"Back to the game!"
+        If FirstTimeHereC < 1 || FirstTimeHereL < 1
 
-        If 0
-        
-            GetMoreMoney = 50000
-            GetMoreMoneyLoc = GetMoreMoney.convertToLocalCurrency()
-            GetMoreMoney1 = 100000
-            GetMoreMoney1Loc = GetMoreMoney1.convertToLocalCurrency()
-            GetMoreMoney2 = 500000
-            GetMoreMoney2Loc = GetMoreMoney2.convertToLocalCurrency()
-            GetMoreMoney3 = 1000000
-            GetMoreMoney3Loc = GetMoreMoney3.convertToLocalCurrency()
+            If [Player.isMale() && !Player.isGay() && Player.isInterestedInWomen()] || [Player.isTrans() && Player.isInterestedInWomen()]
             
-            "How much do you need?"
-            0::"I need <GetMoreMoneyLoc>"
-            1::"I need <GetMoreMoney1Loc>"
-            2::"I need <GetMoreMoney2Loc>"
-            3::"I need <GetMoreMoney3Loc>"
+                CasandraSmith:attractiontoplayer => Random(50, 98)
+                CasandraSmith:rapportwithplayer => Random(50, 98)
+                CasandraSmith.makePermanent()
+                Player.setActorVar(rk_GM_CheatFirstTimeHereC, 1)
+            
+            ElseIf Player.isGay() || [Player.isTrans() && Player.isInterestedInMen()] || Player.isFemale()
+            
+                LukeBetton:attractiontoplayer => Random(50, 98)
+                LukeBetton:rapportwithplayer => Random(50, 98)
+                LukeBetton.makePermanent()
+                Player.setActorVar(rk_GM_CheatFirstTimeHereL, 1)
+
+            EndIf
+
+        EndIf
+        
+        If [Player.isMale() && !Player.isGay() && Player.isInterestedInWomen()] || [Player.isTrans() && Player.isInterestedInWomen()]
+            
+            CasandraSmith.show()
+            CasandraSmith.movetoPersonStand(Player, 50)
+            CasandraSmith.animate(socialize)
+            CasandraSmith(Happy)::"So my dear, you want to cheat?"
+            CasandraSmith(Happy)::"Every time you cheat you increase your Karma level...nothing is entirely free in the life! ;)"
+            
+            If [Player:perversion > 50 && Player:arousal > 15] && [CasandraSmith:perversion > 50 && CasandraSmith:arousal > 15]
+                CasandraSmith(Flirty)::"But, if you want, sexy <Player.boy_or_girl>!"
+                CasandraSmith(Happy)::"We can play together before you begin to cheat?"
+                "Do I accept her offer?"
+                0::"I accept"
+                1::"I refuse"
+        
+                If 0
+        
+                    CasandraSmith.show(4)
+                    CasandraSmith.strip()
+                    Player.strip()
+
+                    Sex(CasandraSmith, Player)
+                    perversion += 0.35
+                    CasandraSmith:attractiontoplayer += Random(0, 3)
+
+                    passTime(0.15, 0.25)
+
+                    CasandraSmith(Serene):: "That was good!"
+                    CasandraSmith.dress()
+        
+                EndIf
+        
+            EndIf
+            
+        ElseIf Player.isGay() || [Player.isTrans() && Player.isInterestedInMen()] || Player.isFemale()
+            
+            LukeBetton.show()
+            LukeBetton.movetoPersonStand(Player, 50)
+            LukeBetton.animate(socialize)
+            LukeBetton(Happy)::"So my dear, you want to cheat?"
+            LukeBetton(Happy)::"Every time you cheat you increase your Karma level...nothing is entirely free in the life! ;)"
+            
+            If [Player:perversion > 50 && Player:arousal > 15] && [LukeBetton:perversion > 50 && LukeBetton:arousal > 15]
+                LukeBetton(Flirty)::"But, if you want, sexy <Player.boy_or_girl>!"
+                LukeBetton(Happy)::"We can play together before you begin to cheat?"
+                "Do I accept her offer?"
+                0::"I accept"
+                1::"I refuse"
+        
+                If 0
+        
+                    LukeBetton.show(4)
+                    LukeBetton.strip()
+                    Player.strip()
+
+                    Sex(LukeBetton, Player)
+                    perversion += 0.35
+                    LukeBetton:attractiontoplayer += Random(0, 3)
+
+                    passTime(0.15, 0.25)
+
+                    LukeBetton(Serene):: "That was good!"
+                    LukeBetton.dress()
+        
+                EndIf
+        
+        
+            EndIf
+            
+        EndIf
+
+        StayinMenu = true
+        While StayinMenu
+    
+            "Where do you want to cheat?"
+            0::"Get more money"
+            1::"Improve Skills stats"
+            2::"Improve Body/Health stats"
+            3::"Improve Sexual stats"
+            4::"Improve Sex Preferences"
+            10::"Improve inventory"
+           30:: isModEnabled(nn_GangsOfLifePlay) ::"Gang Of LifePlay Cheats"
+            31:: isModEnabled(nn_PornEmpire) ::"PornEmpire Cheats"
+            50:: isModEnabled(rk_MoneyMaker) ::"Money Maker Cheats"
+            55:: isModEnabled(rk_Sex_Guru) ::"Sex Guru Cheats"
+            56:: isModEnabled(rk_ShopAddons) ::"Shop Addons Cheats"
+            59:: isModEnabled(rk_Weed_biz) ::"Weed Biz Cheats"
             99::"Back to the game!"
-            
-            If 0
-            
-                "<GetMoreMoneyLoc> have been added to your money!"
-                money += GetMoreMoney
-                karma -= 2
-                
-            ElseIf 1
-            
-                "<GetMoreMoney1Loc> have been added to your money!"
-                money += GetMoreMoney1
-                karma -= 2
-                
-            ElseIf 2
-            
-                "<GetMoreMoney2Loc> have been added to your money!"
-                money += GetMoreMoney2
-                karma -= 2
-                
-            ElseIf 3
-            
-                "<GetMoreMoney3Loc> have been added to your money!"
-                money += GetMoreMoney3
-                karma -= 2
-                
-            EndIf
-        
-            CasandraSmith.stripOne()
-            CasandraSmith:attractiontoplayer += Random(0, 2)
-            CasandraSmith:rapportwithplayer += Random(0, 2)
 
-        ElseIf 1
-            
-            Add50Points = 50
-            "Which skill do you want to improve?"
-            0::"Cooking (+<Add50Points>)"
-            1::"Dance (+<Add50Points>)"
-            2::"Fitness (+<Add50Points>)"
-            3::"Interpersonal (+<Add50Points>)"
-            4::"Job experience (+<Add50Points>)"
-            5::"Job performance (+<Add50Points>)"
-            6::"Martial (+<Add50Points>)"
-            7::"Music (+<Add50Points>)"
-            8::"Perks (Add 5 Points)"
-            9::"Pornfame (+<Add50Points>)"
-            10::"Sneaking (+<Add50Points>)"
-            99::"Back!"
-            
             If 0
+        
+                GetMoreMoney = 50000
+                GetMoreMoneyLoc = GetMoreMoney.convertToLocalCurrency()
+                GetMoreMoney1 = 100000
+                GetMoreMoney1Loc = GetMoreMoney1.convertToLocalCurrency()
+                GetMoreMoney2 = 500000
+                GetMoreMoney2Loc = GetMoreMoney2.convertToLocalCurrency()
+                GetMoreMoney3 = 1000000
+                GetMoreMoney3Loc = GetMoreMoney3.convertToLocalCurrency()
             
-                "<Add50Points> points have been added to your cooking skills!"
-                cooking += 50
-                karma -= 2
+                "How much do you need?"
+                0::"I need <GetMoreMoneyLoc>"
+                1::"I need <GetMoreMoney1Loc>"
+                2::"I need <GetMoreMoney2Loc>"
+                3::"I need <GetMoreMoney3Loc>"
+                99::"Back to the game!"
             
-            ElseIf 1
+                If 0
             
-                "<Add50Points> points have been added to your dancing skills!"
-                dance += 50
-                karma -= 2
-            
-            ElseIf 2
-            
-                "<Add50Points> points have been added to your fitness skills!"
-                fitness += 50
-                karma -= 2
-                 
-            ElseIf 3
-            
-                "<Add50Points> points have been added to your interpersonal skills!"
-                interpersonal += 50
-                karma -= 2
+                    "<GetMoreMoneyLoc> have been added to your money!"
+                    money += GetMoreMoney
+                    karma -= 2
                 
-            ElseIf 4
+                ElseIf 1
             
-                "<Add50Points> points have been added to your job experience skills!"
-                jobexperience += 50
-                karma -= 2
+                    "<GetMoreMoney1Loc> have been added to your money!"
+                    money += GetMoreMoney1
+                    karma -= 2
                 
-            ElseIf 5
+                ElseIf 2
             
-                "<Add50Points> points have been added to your job performance skills!"
-                jobperformance += 50
-                karma -= 2
-                 
-            ElseIf 6
+                    "<GetMoreMoney2Loc> have been added to your money!"
+                    money += GetMoreMoney2
+                    karma -= 2
+                
+                ElseIf 3
             
-                "<Add50Points> points have been added to your job performance skills!"
-                martial += 50
-                karma -= 2
-            
-            ElseIf 7
-            
-                "<Add50Points> points have been added to your music skills!"
-                music += 50
-                karma -= 2
-            
-            ElseIf 8
+                    "<GetMoreMoney3Loc> have been added to your money!"
+                    money += GetMoreMoney3
+                    karma -= 2
+                
+                EndIf
+                
+                If [Player.isMale() && !Player.isGay() && Player.isInterestedInWomen()] || [Player.isTrans() && Player.isInterestedInWomen()]
+                    CasandraSmith.stripOne()
+                    CasandraSmith:attractiontoplayer += Random(0, 2)
+                    CasandraSmith:rapportwithplayer += Random(0, 2)
+                ElseIf Player.isGay() || [Player.isTrans() && Player.isInterestedInMen()] || Player.isFemale()
+                    LukeBetton.stripOne()
+                    LukeBetton:attractiontoplayer += Random(0, 2)
+                    LukeBetton:rapportwithplayer += Random(0, 2)
+                EndIf
 
-                "5 points have been added to your perk skills!"
-                perks += 5
-                karma -= 5
-                 
-            ElseIf 9
-            
-                "<Add50Points> points have been added to your Pornfame skills!"
-                pornfame += 50
-                karma -= 2
-                 
-            ElseIf 10
-            
-                "<Add50Points> points have been added to your sneaking skills!"
-                sneak += 50
-                karma -= 2
-            
-            EndIf
-        
-            CasandraSmith.stripOne()
-            CasandraSmith:attractiontoplayer += Random(0, 2)
-            CasandraSmith:rapportwithplayer += Random(0, 2)
-            
-        ElseIf 2
-            
-            Add50Points = 50
-            "What do you want to improve?"
-            0::"Attractiveness (+<Add50Points>)"
-            1::"Energy (+<Add50Points>)"
-            2::"Intelligence (+<Add50Points>)"
-            3::"Karma (+<Add50Points>)"
-            4::"Muscle (+<Add50Points>)"
-            99::"Back!"
-            
-            If 0
-            
-                "<Add50Points> points have been added to your attractiveness level!"
-                attractiveness += 50
-                karma -= 2
-            
             ElseIf 1
             
-                "<Add50Points> points have been added to your energy level!"
-                energy += 50
-                karma -= 2
+                Add50Points = 50
+                "Which skill do you want to improve?"
+                0::"Cooking (+<Add50Points>)"
+                1::"Dance (+<Add50Points>)"
+                2::"Fitness (+<Add50Points>)"
+                3::"Interpersonal (+<Add50Points>)"
+                4::"Job experience (+<Add50Points>)"
+                5::"Job performance (+<Add50Points>)"
+                6::"Martial (+<Add50Points>)"
+                7::"Music (+<Add50Points>)"
+                8::"Perks (Add 5 Points)"
+                9::"Pornfame (+<Add50Points>)"
+                10::"Sneaking (+<Add50Points>)"
+                99::"Back!"
+            
+                If 0
+            
+                    "<Add50Points> points have been added to your cooking skills!"
+                    cooking += 50
+                    karma -= 2
+            
+                ElseIf 1
+            
+                    "<Add50Points> points have been added to your dancing skills!"
+                    dance += 50
+                    karma -= 2
+            
+                ElseIf 2
+            
+                    "<Add50Points> points have been added to your fitness skills!"
+                    fitness += 50
+                    karma -= 2
+                 
+                ElseIf 3
+            
+                    "<Add50Points> points have been added to your interpersonal skills!"
+                    interpersonal += 50
+                    karma -= 2
                 
+                ElseIf 4
+            
+                    "<Add50Points> points have been added to your job experience skills!"
+                    jobexperience += 50
+                    karma -= 2
+                
+                ElseIf 5
+            
+                    "<Add50Points> points have been added to your job performance skills!"
+                    jobperformance += 50
+                    karma -= 2
+                 
+                ElseIf 6
+            
+                    "<Add50Points> points have been added to your job performance skills!"
+                    martial += 50
+                    karma -= 2
+            
+                ElseIf 7
+            
+                    "<Add50Points> points have been added to your music skills!"
+                    music += 50
+                    karma -= 2
+            
+                ElseIf 8
+
+                    "5 points have been added to your perk skills!"
+                    perks += 5
+                    karma -= 5
+                 
+                ElseIf 9
+            
+                    "<Add50Points> points have been added to your Pornfame skills!"
+                    pornfame += 50
+                    karma -= 2
+                 
+                ElseIf 10
+            
+                    "<Add50Points> points have been added to your sneaking skills!"
+                    sneak += 50
+                    karma -= 2
+            
+                EndIf
+        
+                If [Player.isMale() && !Player.isGay() && Player.isInterestedInWomen()] || [Player.isTrans() && Player.isInterestedInWomen()]
+                    CasandraSmith.stripOne()
+                    CasandraSmith:attractiontoplayer += Random(0, 2)
+                    CasandraSmith:rapportwithplayer += Random(0, 2)
+                ElseIf Player.isGay() || [Player.isTrans() && Player.isInterestedInMen()] || Player.isFemale()
+                    LukeBetton.stripOne()
+                    LukeBetton:attractiontoplayer += Random(0, 2)
+                    LukeBetton:rapportwithplayer += Random(0, 2)
+                EndIf
+            
             ElseIf 2
             
-                "<Add50Points> points have been added to your intelligence level!"
-                intelligence += 50
-                karma -= 2
+                Add50Points = 50
+                "What do you want to improve?"
+                0::"Attractiveness (+<Add50Points>)"
+                1::"Energy (+<Add50Points>)"
+                2::"Intelligence (+<Add50Points>)"
+                3::"Karma (+<Add50Points>)"
+                4::"Muscle (+<Add50Points>)"
+                99::"Back!"
+            
+                If 0
+            
+                    "<Add50Points> points have been added to your attractiveness level!"
+                    attractiveness += 50
+                    karma -= 2
+            
+                ElseIf 1
+            
+                    "<Add50Points> points have been added to your energy level!"
+                    energy += 50
+                    karma -= 2
                 
-            ElseIf 3
+                ElseIf 2
             
-                "<Add50Points> points have been added to your karma level!"
-                karma += 50
-                Intelligence -= 2
+                    "<Add50Points> points have been added to your intelligence level!"
+                    intelligence += 50
+                    karma -= 2
+                
+                ElseIf 3
             
-            ElseIf 4
+                    "<Add50Points> points have been added to your karma level!"
+                    karma += 50
+                    Intelligence -= 2
             
-                "<Add50Points> points have been added to your muscle level!"
-                muscle += 50
-                karma -= 2
+                ElseIf 4
             
-            EndIf
+                    "<Add50Points> points have been added to your muscle level!"
+                    muscle += 50
+                    karma -= 2
+            
+                EndIf
         
-            CasandraSmith.stripOne()
-            CasandraSmith:attractiontoplayer += Random(0, 2)
-            CasandraSmith:rapportwithplayer += Random(0, 2)
+                If [Player.isMale() && !Player.isGay() && Player.isInterestedInWomen()] || [Player.isTrans() && Player.isInterestedInWomen()]
+                    CasandraSmith.stripOne()
+                    CasandraSmith:attractiontoplayer += Random(0, 2)
+                    CasandraSmith:rapportwithplayer += Random(0, 2)
+                ElseIf Player.isGay() || [Player.isTrans() && Player.isInterestedInMen()] || Player.isFemale()
+                    LukeBetton.stripOne()
+                    LukeBetton:attractiontoplayer += Random(0, 2)
+                    LukeBetton:rapportwithplayer += Random(0, 2)
+                EndIf
         
         ElseIf 3
             
@@ -359,9 +441,15 @@ SceneStart()
             
             EndIf
         
-            CasandraSmith.stripOne()
-            CasandraSmith:attractiontoplayer += Random(0, 2)
-            CasandraSmith:rapportwithplayer += Random(0, 2)
+                If [Player.isMale() && !Player.isGay() && Player.isInterestedInWomen()] || [Player.isTrans() && Player.isInterestedInWomen()]
+                    CasandraSmith.stripOne()
+                    CasandraSmith:attractiontoplayer += Random(0, 2)
+                    CasandraSmith:rapportwithplayer += Random(0, 2)
+                ElseIf Player.isGay() || [Player.isTrans() && Player.isInterestedInMen()] || Player.isFemale()
+                    LukeBetton.stripOne()
+                    LukeBetton:attractiontoplayer += Random(0, 2)
+                    LukeBetton:rapportwithplayer += Random(0, 2)
+                EndIf
             
         ElseIf 4
         
@@ -554,256 +642,274 @@ SceneStart()
             
             EndIf
         
-            CasandraSmith.stripOne()
-            CasandraSmith:attractiontoplayer += Random(0, 2)
-            CasandraSmith:rapportwithplayer += Random(0, 2)
-            
-        ElseIf 30
-            
-            nItems = Player.getActorVar(GL_ValueItems)
-            nDrugs = Player.getActorVar(GL_Drugs)
-            bmState = Player.getActorVar(GL_BM_state)
-            Add50Points = 50
-            
-            "What I want to improve?"
-            0::"Drugs (+<Add50Points>)"
-            1::"Number of Valuable items (+<Add50Points>)"
-            2::"9mm ammo (+<Add50Points>)"
-            3:: bmState < 4::"Register Black Market"
-            4::"Lock Picking Skills"
-            99::"Back!"
-        
-            If 0
-
-                Player.modifyActorVar(GL_Drugs, 50)
-                "You added 50 drugs to your inventory."
-                karma -= 2
-            
-            ElseIf 1
-
-                Player.modifyActorVar(GL_ValueItems, 50)
-                "You added 50 valuable items to your inventory."
-                karma -= 2
-            
-            ElseIf 2
-
-                Player:glGunAmmo += 50
-                "You added 50 ammos to your inventory"
-                karma -= 2
-            
-            ElseIf 3
-            
-                If bmState == 4
-                
-                    "You already have all you need!"
-                
-                Else
-
-                    Player.setActorVar(GL_BM_state, 4)
-                    "You register your account 'KingOfCrimeXXX' and browse the awesome stuff that is for sale."
-                    bmOpen = true
-                    karma -= 2
-                
+                If [Player.isMale() && !Player.isGay() && Player.isInterestedInWomen()] || [Player.isTrans() && Player.isInterestedInWomen()]
+                    CasandraSmith.stripOne()
+                    CasandraSmith:attractiontoplayer += Random(0, 2)
+                    CasandraSmith:rapportwithplayer += Random(0, 2)
+                ElseIf Player.isGay() || [Player.isTrans() && Player.isInterestedInMen()] || Player.isFemale()
+                    LukeBetton.stripOne()
+                    LukeBetton:attractiontoplayer += Random(0, 2)
+                    LukeBetton:rapportwithplayer += Random(0, 2)
                 EndIf
-                
-            ElseIf 4
+            
+            ElseIf 30
+            
+                nItems = Player.getActorVar(GL_ValueItems)
+                nDrugs = Player.getActorVar(GL_Drugs)
+                bmState = Player.getActorVar(GL_BM_state)
+                Add50Points = 50
+            
+                "What I want to improve?"
+                0::"Drugs (+<Add50Points>)"
+                1::"Number of Valuable items (+<Add50Points>)"
+                2::"9mm ammo (+<Add50Points>)"
+                3:: bmState < 4::"Register Black Market"
+                4::"Lock Picking Skills"
+                99::"Back!"
+        
+                If 0
 
-                Player:glLockPickingSkill += 50
-                "You added 50 points to your lock picking skills"
-                karma -= 2
+                    Player.modifyActorVar(GL_Drugs, 50)
+                    "You added 50 drugs to your inventory."
+                    karma -= 2
+            
+                ElseIf 1
 
-            EndIf
-        
-            CasandraSmith.stripOne()
-            CasandraSmith:attractiontoplayer += Random(0, 2)
-            CasandraSmith:rapportwithplayer += Random(0, 2)
+                    Player.modifyActorVar(GL_ValueItems, 50)
+                    "You added 50 valuable items to your inventory."
+                    karma -= 2
             
-        ElseIf 31
-        
-            followUp(nn_pe_scene_settings)
-            StayinMenu = false
-        
-        ElseIf 50
-        
-            Add50Points = 50
-            "What do you want to do?"
-            0::"Get more art items"
-            1::"Get more jewelry"
-            99::"Back!"
+                ElseIf 2
+
+                    Player:glGunAmmo += 50
+                    "You added 50 ammos to your inventory"
+                    karma -= 2
             
-            If 0
+                ElseIf 3
             
-                cheapAType = Player.getActorVar(cheapAType)
-                AffordableAType = Player.getActorVar(AffordableAType)
-                ClassyAType = Player.getActorVar(ClassyAType)
-                NiceAType = Player.getActorVar(NiceAType)
-                FashionAType = Player.getActorVar(FashionAType)
-                HandcraftedAType = Player.getActorVar(HandcraftedAType)
-                FinestAType = Player.getActorVar(FinestAType)
-                FirstQualityAType = Player.getActorVar(FirstQualityAType)
-                value_artproducts = Player.getActorVar(value_artproducts)
+                    If bmState == 4
                 
-                "Which one you want?"
-                0:: "<Add50Points> cheap art items"
-                1:: "<Add50Points> affordable art items"
-                2:: "<Add50Points> classy art items"
-                3:: "<Add50Points> nice art items"
-                4:: "<Add50Points> fashion art items"
-                5:: "<Add50Points> handcrafted art items"
-                6:: "<Add50Points> finest art items"
-                7:: "<Add50Points> first quality art items"
-                99:: "Go back !"
+                        "You already have all you need!"
                 
+                    Else
+
+                        Player.setActorVar(GL_BM_state, 4)
+                        "You register your account 'KingOfCrimeXXX' and browse the awesome stuff that is for sale."
+                        bmOpen = true
+                        karma -= 2
+                
+                    EndIf
+                
+                ElseIf 4
+
+                    Player:glLockPickingSkill += 50
+                    "You added 50 points to your lock picking skills"
+                    karma -= 2
+
+                EndIf
+        
+                If [Player.isMale() && !Player.isGay() && Player.isInterestedInWomen()] || [Player.isTrans() && Player.isInterestedInWomen()]
+                    CasandraSmith.stripOne()
+                    CasandraSmith:attractiontoplayer += Random(0, 2)
+                    CasandraSmith:rapportwithplayer += Random(0, 2)
+                ElseIf Player.isGay() || [Player.isTrans() && Player.isInterestedInMen()] || Player.isFemale()
+                    LukeBetton.stripOne()
+                    LukeBetton:attractiontoplayer += Random(0, 2)
+                    LukeBetton:rapportwithplayer += Random(0, 2)
+                EndIf
+            
+            ElseIf 31
+        
+                followUp(nn_pe_scene_settings)
+                StayinMenu = false
+        
+            ElseIf 50
+        
+                Add50Points = 50
+                "What do you want to do?"
+                0::"Get more art items"
+                1::"Get more jewelry"
+                99::"Back!"
+            
                 If 0
             
-                    Player.modifyActorVar(cheapAType, 50)
-                    Player::"Maybe cheap, but they always useful inside some rooms or to give at a gifts exchange."
-                    karma -= 2
+                    cheapAType = Player.getActorVar(cheapAType)
+                    AffordableAType = Player.getActorVar(AffordableAType)
+                    ClassyAType = Player.getActorVar(ClassyAType)
+                    NiceAType = Player.getActorVar(NiceAType)
+                    FashionAType = Player.getActorVar(FashionAType)
+                    HandcraftedAType = Player.getActorVar(HandcraftedAType)
+                    FinestAType = Player.getActorVar(FinestAType)
+                    FirstQualityAType = Player.getActorVar(FirstQualityAType)
+                    value_artproducts = Player.getActorVar(value_artproducts)
                 
-                Elseif 1
-            
-                    Player.modifyActorVar(AffordableAType, 50)
-                    Player::"50 more affordable art items added to my collection."
-                    karma -= 2
+                    "Which one you want?"
+                    0:: "<Add50Points> cheap art items"
+                    1:: "<Add50Points> affordable art items"
+                    2:: "<Add50Points> classy art items"
+                    3:: "<Add50Points> nice art items"
+                    4:: "<Add50Points> fashion art items"
+                    5:: "<Add50Points> handcrafted art items"
+                    6:: "<Add50Points> finest art items"
+                    7:: "<Add50Points> first quality art items"
+                    99:: "Go back !"
                 
-                Elseif 2
+                    If 0
             
-                    Player.modifyActorVar(ClassyAType, 50)
-                    Player::"50 more classy art items added to my collection."
-                    karma -= 2
+                        Player.modifyActorVar(cheapAType, 50)
+                        Player::"Maybe cheap, but they always useful inside some rooms or to give at a gifts exchange."
+                        karma -= 2
                 
-                Elseif 3
+                    Elseif 1
             
-                    Player.modifyActorVar(NiceAType, 50)
-                    Player::"Sure, with they I will look pretty cool inside my house!"
-                    karma -= 2
+                        Player.modifyActorVar(AffordableAType, 50)
+                        Player::"50 more affordable art items added to my collection."
+                        karma -= 2
                 
-                Elseif 4
+                    Elseif 2
             
-                    Player.modifyActorVar(FashionAType, 50)
-                    Player::"50 more fashion art items added to my collection."
-                    karma -= 2
+                        Player.modifyActorVar(ClassyAType, 50)
+                        Player::"50 more classy art items added to my collection."
+                        karma -= 2
                 
-                Elseif 5
+                    Elseif 3
             
-                    Player.modifyActorVar(HandcraftedAType, 50)
-                    Player::"50 more handcrafted art items added to my collection."
-                    karma -= 2
+                        Player.modifyActorVar(NiceAType, 50)
+                        Player::"Sure, with they I will look pretty cool inside my house!"
+                        karma -= 2
                 
-                Elseif 6
+                    Elseif 4
             
-                    Player.modifyActorVar(FinestAType, 50)
-                    Player::"When you want to look rich, these are the art items you get!"
-                    karma -= 2
+                        Player.modifyActorVar(FashionAType, 50)
+                        Player::"50 more fashion art items added to my collection."
+                        karma -= 2
                 
-                Elseif 7
+                    Elseif 5
             
-                    Player.modifyActorVar(FirstQualityAType, 50)
-                    Player::"When you want to look very rich, these are the art items you get!"
-                    karma -= 2
+                        Player.modifyActorVar(HandcraftedAType, 50)
+                        Player::"50 more handcrafted art items added to my collection."
+                        karma -= 2
                 
-                Endif
+                    Elseif 6
             
-            Else 1
+                        Player.modifyActorVar(FinestAType, 50)
+                        Player::"When you want to look rich, these are the art items you get!"
+                        karma -= 2
+                
+                    Elseif 7
             
-                stock_cheapJType = Player.getActorVar(stock_cheapJType)
-                stock_AffordableJType = Player.getActorVar(stock_AffordableJType)
-                stock_ClassyJType = Player.getActorVar(stock_ClassyJType)
-                stock_NiceJType = Player.getActorVar(stock_NiceJType)
-                stock_FashionJType = Player.getActorVar(stock_FashionJType)
-                stock_HandcraftedJType = Player.getActorVar(stock_HandcraftedJType)
-                stock_FinestJType = Player.getActorVar(stock_FinestJType)
-                stock_FirstQualityJType = Player.getActorVar(stock_FirstQualityJType)
-                jewel_value = Player.getActorVar(jewel_value)
+                        Player.modifyActorVar(FirstQualityAType, 50)
+                        Player::"When you want to look very rich, these are the art items you get!"
+                        karma -= 2
+                
+                    Endif
+            
+                Else 1
+            
+                    stock_cheapJType = Player.getActorVar(stock_cheapJType)
+                    stock_AffordableJType = Player.getActorVar(stock_AffordableJType)
+                    stock_ClassyJType = Player.getActorVar(stock_ClassyJType)
+                    stock_NiceJType = Player.getActorVar(stock_NiceJType)
+                    stock_FashionJType = Player.getActorVar(stock_FashionJType)
+                    stock_HandcraftedJType = Player.getActorVar(stock_HandcraftedJType)
+                    stock_FinestJType = Player.getActorVar(stock_FinestJType)
+                    stock_FirstQualityJType = Player.getActorVar(stock_FirstQualityJType)
+                    jewel_value = Player.getActorVar(jewel_value)
         
-                "Which one you want?"
-                0::"50 cheap jewelry"
-                1::"50 affordable jewelry"
-                2::"50 classy jewelry"
-                3::"50 nice jewelry"
-                4::"50 fashion jewelry"
-                5::"50 handcrafted jewelry"
-                6::"50 finest jewelry"
-                7::"50 first quality jewelry"
-                99:: "Go back !"
+                    "Which one you want?"
+                    0::"50 cheap jewelry"
+                    1::"50 affordable jewelry"
+                    2::"50 classy jewelry"
+                    3::"50 nice jewelry"
+                    4::"50 fashion jewelry"
+                    5::"50 handcrafted jewelry"
+                    6::"50 finest jewelry"
+                    7::"50 first quality jewelry"
+                    99:: "Go back !"
                 
-                If 0
+                    If 0
             
-                    Player.modifyActorVar(stock_cheapJType, 50)
-                    Player::"Maybe cheap, but the best gifts for my children, strangers or my prostitutes..."
-                    karma -= 2
+                        Player.modifyActorVar(stock_cheapJType, 50)
+                        Player::"Maybe cheap, but the best gifts for my children, strangers or my prostitutes..."
+                        karma -= 2
                                 
-                Elseif 1
+                    Elseif 1
             
-                    Player.modifyActorVar(stock_AffordableJType, 50)
-                    Player::"I'm pretty sure, I will look nice with them!"
-                    karma -= 2
+                        Player.modifyActorVar(stock_AffordableJType, 50)
+                        Player::"I'm pretty sure, I will look nice with them!"
+                        karma -= 2
 
-                Elseif 2
+                    Elseif 2
             
-                    Player.modifyActorVar(stock_ClassyJType, 50)
-                    Player::"50 more classy Jewelry in my jewel box."
-                    karma -= 2
+                        Player.modifyActorVar(stock_ClassyJType, 50)
+                        Player::"50 more classy Jewelry in my jewel box."
+                        karma -= 2
 
-                Elseif 3
+                    Elseif 3
             
-                    Player.modifyActorVar(stock_NiceJType, 50)
-                    Player::"Sure, with these I will look pretty cool !"
-                    karma -= 2
+                        Player.modifyActorVar(stock_NiceJType, 50)
+                        Player::"Sure, with these I will look pretty cool !"
+                        karma -= 2
 
-                Elseif 4
+                    Elseif 4
             
-                    Player.modifyActorVar(stock_FashionJType, 50)
-                    Player::"50 more fashion jewel in my jewel box."
-                    karma -= 2
+                        Player.modifyActorVar(stock_FashionJType, 50)
+                        Player::"50 more fashion jewel in my jewel box."
+                        karma -= 2
 
-                Elseif 5
+                    Elseif 5
             
-                    Player.modifyActorVar(stock_HandcraftedJType, 50)
-                    Player::"50 more handcrafted Jewelry for my collection."
-                    karma -= 2
+                        Player.modifyActorVar(stock_HandcraftedJType, 50)
+                        Player::"50 more handcrafted Jewelry for my collection."
+                        karma -= 2
 
-                Elseif 6
+                    Elseif 6
             
-                    Player.modifyActorVar(stock_FinestJType, 50)
-                    Player::"When you want to look rich, that's the Jewelry you get !"
-                    karma -= 2
+                        Player.modifyActorVar(stock_FinestJType, 50)
+                        Player::"When you want to look rich, that's the Jewelry you get !"
+                        karma -= 2
 
-                Elseif 7
+                    Elseif 7
             
-                    Player.modifyActorVar(stock_FirstQualityJType, 50)
-                    Player::"When you want to look very rich, that's the Jewelry you get !"
-                    karma -= 2
+                        Player.modifyActorVar(stock_FirstQualityJType, 50)
+                        Player::"When you want to look very rich, that's the Jewelry you get !"
+                        karma -= 2
 
-                Endif
+                    Endif
 
+                EndIf
+        
+                If [Player.isMale() && !Player.isGay() && Player.isInterestedInWomen()] || [Player.isTrans() && Player.isInterestedInWomen()]
+                    CasandraSmith.stripOne()
+                    CasandraSmith:attractiontoplayer += Random(0, 2)
+                    CasandraSmith:rapportwithplayer += Random(0, 2)
+                ElseIf Player.isGay() || [Player.isTrans() && Player.isInterestedInMen()] || Player.isFemale()
+                    LukeBetton.stripOne()
+                    LukeBetton:attractiontoplayer += Random(0, 2)
+                    LukeBetton:rapportwithplayer += Random(0, 2)
+                EndIf
+            
+            ElseIf 55
+        
+                followUp(rk_Cheat_religion)
+                StayinMenu = false
+            
+            ElseIf 56
+        
+                followUp(rk_Cheat_ShopAddons)
+                StayinMenu = false
+            
+            ElseIf 59
+        
+                followUp(rk_wd_CheatList)
+                StayinMenu = false
+            
+            Else
+    
+                StayinMenu = false
+    
             EndIf
-        
-            CasandraSmith.stripOne()
-            CasandraSmith:attractiontoplayer += Random(0, 2)
-            CasandraSmith:rapportwithplayer += Random(0, 2)
-            
-        ElseIf 55
-        
-            followUp(rk_Cheat_religion)
-            StayinMenu = false
-            
-        ElseIf 56
-        
-            followUp(rk_Cheat_ShopAddons)
-            StayinMenu = false
-            
-        ElseIf 59
-        
-            followUp(rk_wd_CheatList)
-            StayinMenu = false
-            
-        Else
-    
-            StayinMenu = false
-    
-        EndIf
 
-    EndWhile
+        EndWhile
 
-SceneEnd()
+    SceneEnd()
